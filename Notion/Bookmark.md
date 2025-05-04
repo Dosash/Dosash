@@ -26,3 +26,4 @@
 |-|-|-|
 | TorrServe | https://github.com/YouROK/TorrServe/releases | Для запуска и просмотра фильмов в торрент файлах. |
 | Num | https://releases.yourok.ru/ | Для поиска фильмов в торрент файлах |
+| Soft | [Soft link git](https://github.com/Dosash/Dosash/blob/main/Notion/soft/README.md) | Ссылка на мой софт |
