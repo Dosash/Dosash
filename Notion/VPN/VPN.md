@@ -1,2 +1,5 @@
 Панель для управления VPN: [3x-ui](https://github.com/MHSanaei/3x-ui)
-Протокол Vless пример настроек: [Тык!](https://github.com/Dosash/Dosash/blob/main/%D0%97%D0%B0%D0%BC%D0%B5%D1%82%D0%BA%D0%B8/VPN/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202025-05-04%20%D0%B2%2000.08.19.png) С маскировкой под VK.com
+
+Протокол Vless пример настроек: [pages_vless_setings.png](https://github.com/Dosash/Dosash/blob/7f83e61ef3c835f59b238c37416f4a0bf773ac6a/Notion/VPN/pages_vless_setings.png)
+
+С маскировкой под VK.com
