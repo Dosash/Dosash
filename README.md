@@ -2,9 +2,11 @@
 ## Но его не будет
 Я тут просто веду свои заметки.
 
+
 Так-что я хз что писать в оглавлении и просто оставлю ссылку на свой твич и тг канал:
+- **[Twitch](https://www.twitch.tv/dosash)**
+- **[Telegram chanel](https://t.me/Dosash)**
 
-[Twitch](https://www.twitch.tv/dosash)
+И вообще эта страница сделана в GitHub и там я оставляю все свои заметки. Можете просмотреть **[тут!](https://github.com/Dosash/Dosash)** там много чего интересного.
 
-[Telegram chanel](https://t.me/Dosash)
-
+Так-же если вы хотите меня поддержать это можно сделать тут: **[Рублём](https://pay.cloudtips.ru/p/894f4248)** или **[Криптой](https://www.cropty.io/ru/@dosash)**
