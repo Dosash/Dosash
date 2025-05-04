@@ -31,6 +31,3 @@
 ## 💻 SOFT
 Папка с софтом который я использую.
 - **[README по софту](https://github.com/Dosash/Dosash/blob/80435f8e693e983b0b706e257f556c0955091bb2/Notion/soft/README.md)**
-
-
-![SVG Image](https://www.svgrepo.com/show/535116/address-card.svg)
