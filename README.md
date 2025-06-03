@@ -19,13 +19,6 @@
 
 ---
 
-## 🎥 FILMS
-Папка для работы с моими телеграм каналами по фильмам.
-- **[Телеграм боты](https://github.com/Dosash/Dosash/blob/80435f8e693e983b0b706e257f556c0955091bb2/Notion/Films_tg_chanel/tg_bots.md)**
-- **[Примеры постов для каналов](https://github.com/Dosash/Dosash/blob/80435f8e693e983b0b706e257f556c0955091bb2/Notion/Films_tg_chanel/post.md)**
-
----
-
 ## 💻 SOFT
 Папка с софтом который я использую.
 - **[README по софту](https://github.com/Dosash/Dosash/blob/80435f8e693e983b0b706e257f556c0955091bb2/Notion/soft/README.md)**
