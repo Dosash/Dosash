@@ -6,7 +6,6 @@
 |-|-|-|
 | Twitch | https://www.twitch.tv/dosash/ | Мой Twtich |
 | YouTube | https://www.youtube.com/@dosash | Мой YouTube |
-| TG Chanel | https://t.me/Dosash | Мой Telegram канал |
 
 ---
 
@@ -27,4 +26,4 @@
 |-|-|-|
 | TorrServe | https://github.com/YouROK/TorrServe/releases | Для запуска и просмотра фильмов в торрент файлах. |
 | Num | https://releases.yourok.ru/ | Для поиска фильмов в торрент файлах |
-| Soft | [Soft link git](https://github.com/Dosash/Dosash/blob/main/Notion/soft/README.md) | Ссылка на мой софт |
+| Soft | https://github.com/Dosash/Dosash/blob/main/Notion/soft/README.md | Ссылка на мой софт |
