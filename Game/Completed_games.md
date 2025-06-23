@@ -13,7 +13,7 @@
 - [ ]  Just Cause 4 (Нет и не пройду!)
 - [x]  Max Payne 1
 - [ ]  Max Payne 2
-- [ ]  Max Payne 3
+- [x]  Max Payne 3 | VOD: [Playlist](https://www.youtube.com/watch?v=hPnqfD1l6uk&list=PLH6K7Mhphz5bnQq1W3GiiZ-RXsQsLnVLN&pp=gAQB0gcJCWMEOCosWNin)
 - [x]  DOOM (2016)
 - [x]  DOOM Eternal
 - [ ]  DOOM Eternal DLC
@@ -39,6 +39,7 @@
 - [x]  Far Cry 5
 - [x]  Fractured
 - [x]  Dying light
+- [ ]  Dying Light 2 Stay Human | VOD: [Playlist](https://www.youtube.com/watch?v=5QCQurKcq8c&list=PLH6K7Mhphz5a4bLzcA3Y0T2KNMJYBpbCm&pp=gAQB)
 - [x]  Darksiders
 - [ ]  Pacific Drive | VOD: [1](https://www.youtube.com/watch?v=OByWvzIwmHU)
 - [ ]  Rogue: Genesia | VOD: [1](https://www.youtube.com/watch?v=0f6BSpfqPLc)
