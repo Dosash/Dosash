@@ -1,0 +1,42 @@
+# Список пройденныех игр
+
+- [x]  Half-Life (Все части и дополнения!)
+- [x]  GTA 5 100%
+- [x]  Warcraft 3
+- [x]  Battlefield 3
+- [x]  Battlefield 4
+- [ ]  Battlefield 1
+- [ ]  Battlefield 5
+- [x]  TES Oblivion
+- [x]  TES Skyrim
+- [x]  Just Cause 3
+- [ ]  Just Cause 4 (Нет и не пройду!)
+- [x]  Max Payne 1
+- [ ]  Max Payne 2
+- [ ]  Max Payne 3
+- [x]  DOOM (2016)
+- [x]  DOOM Eternal
+- [ ]  DOOM Eternal DLC
+- [x]  Времена раздора
+- [x]  Hinterland
+- [ ]  Bioshock
+- [ ]  Bioshock 2
+- [ ]  Bioshock infinity
+- [ ]  Diablo 3
+- [x]  Homefront®: The Revolution Без ДЛС
+- [x]  Murdered: Soul Suspect
+- [x]  Quantum break
+- [x]  Alan Wake
+- [x]  CoD Ghosts
+- [x]  Singularity
+- [x]  Mafia 1,2
+- [x]  Spec Ops: The line
+- [x]  Gears 5
+- [ ]  NieR: Automata
+- [ ]  No man Sky (а ее надо проходить)
+- [x]  Quantum Break
+- [x]  rise of the tomb raider
+- [x]  Far Cry 5
+- [x]  Fractured
+- [x]  Dying light
+- [x]  Darksiders
