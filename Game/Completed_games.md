@@ -48,3 +48,4 @@
 - [ ]  Death Stranding | VOD : [1](https://www.youtube.com/watch?v=HVTksw42L-Y) [2](https://www.youtube.com/watch?v=25eERYXSPo0)
 - [x]  The Callisto Protocol | VOD: [Playlist](https://www.youtube.com/watch?v=p5EtS20947g&list=PLH6K7Mhphz5bIGkfPfhTaWvvw6uQTNbrS&pp=gAQB0gcJCWMEOCosWNin)
 - [ ]  Shadow of the Tomb Raider | VOD: [Playlist](https://www.youtube.com/watch?v=zk2h_jOwPOk&list=PLH6K7Mhphz5a3Me_zLnr6NutLB8ySkzrP&pp=gAQB)
+- [ ]  The Alters | VOD: [Playlist](https://www.youtube.com/watch?v=m-mweHMcwCg&list=PLH6K7Mhphz5YeG7SMBMd8Rcer_P6dCL08&pp=gAQB)
