@@ -6,7 +6,6 @@
 |-|-|-|
 | Twitch | https://www.twitch.tv/dosash/ | Мой Twtich |
 | YouTube | https://www.youtube.com/@dosash | Мой YouTube |
-| TG Chanel | https://t.me/Dosash | Мой Telegram канал |
 
 ---
 
