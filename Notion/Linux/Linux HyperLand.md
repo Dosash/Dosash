@@ -2,6 +2,14 @@
 
 ---
 
+Установка Hiddyfy:
+
+`bash <(curl https://i.hiddify.com/release)`
+
+Конфиг для подключения: (Смотри в ТГ!)
+
+---
+
 Смена языка на Alt+Shift:
 
 `input {
