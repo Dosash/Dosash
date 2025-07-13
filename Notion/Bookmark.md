@@ -11,12 +11,13 @@
 
 ### AI:
 
-| Название: | Сайт: |
-|-|-|
-| ChatGPT  | https://chatgpt.com/ |
-| Grok  | https://grok.com/ |
-| DeepSeek  | https://chat.deepseek.com/ |
-| Qwen  | https://chat.qwen.ai/ |
+| Название:  | Сайт:                      |
+| ---------- | -------------------------- |
+| ChatGPT    | https://chatgpt.com/       |
+| Grok       | https://grok.com/          |
+| DeepSeek   | https://chat.deepseek.com/ |
+| Qwen       | https://chat.qwen.ai/      |
+| Perplexity | https://www.perplexity.ai/ |
 
 ---
 
