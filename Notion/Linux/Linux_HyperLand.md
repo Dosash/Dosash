@@ -39,7 +39,10 @@ kb_options=grp:alt_shift_toggle
 Настройки моих мониторов:
 
 `monitor=DP-3, 2560x1440@179.90, 0x0, 1, transform, 0`
+
 `monitor=HDMI-A-1, 1920x1080@59.96, 2560x0, 1, transform, 2`
+
 `workspace=1, monitor:DP-3`
+
 `workspace=2, monitor:HDMI-A-1`
 
