@@ -1,9 +1,6 @@
 # Как получить и активировать Office *(на свой страх и риск!)*
 
-<video width="320" height="240" controls>
-  <source src="https://github.com/Dosash/Dosash/blob/main/Notion/free_office/2025-02-21%2012-47-18.mp4" type="video/mp4">
-</video>
-
+![Видео](https://github.com/Dosash/Dosash/blob/main/Notion/free_office/2025-02-21%2012-47-18.mp4)
 
 Команда: 
 `irm https://get.activated.win | iex`
