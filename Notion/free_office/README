@@ -1,0 +1,9 @@
+# Как получить и активировать Office *(на свой страх и риск!)*
+
+<video width="320" height="240" controls>
+  <source src="video.mov" type="video/mp4">
+</video>
+
+
+Команда: 
+`irm https://get.activated.win | iex`
