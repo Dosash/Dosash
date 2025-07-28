@@ -6,6 +6,8 @@
 
 ### 1. Подготовка структуры папок
 
+Готовый файл: [ТЫК!](https://github.com/Dosash/Dosash/blob/a929dea00e5d5d3fdbeceecbb6816114df1c5790/Notion/minecraft-server-atm10/Dockerfile)
+
 На вашем хосте (в папке, где будет жить сервер), создайте следующую структуру каталогов и файлов:
 
 ```
@@ -33,6 +35,8 @@ minecraft/
 **Убедитесь, что файл `startserver.sh` и все необходимые серверные файлы лежат в `atm10-server-files/`** — они будут скопированы внутрь образа при сборке.
 
 ### 2. Dockerfile
+
+Готовый файл: [ТЫК!](https://github.com/Dosash/Dosash/blob/a929dea00e5d5d3fdbeceecbb6816114df1c5790/Notion/minecraft-server-atm10/docker-compose.yml)
 
 В папке `minecraft/` создайте или отредактируйте файл `Dockerfile` с таким содержимым:
 
