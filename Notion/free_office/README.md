@@ -2,5 +2,5 @@
 
 ### [Видео](https://github.com/Dosash/Dosash/blob/main/Notion/free_office/2025-02-21%2012-47-18.mp4) инструкция!
 
-Команда: 
+ Команда: 
 `irm https://get.activated.win | iex`
