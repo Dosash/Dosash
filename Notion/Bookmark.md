@@ -28,3 +28,13 @@
 | TorrServe | https://github.com/YouROK/TorrServe/releases | Для запуска и просмотра фильмов в торрент файлах. |
 | Num | https://releases.yourok.ru/ | Для поиска фильмов в торрент файлах |
 | Soft | https://github.com/Dosash/Dosash/blob/main/Notion/soft/README.md | Ссылка на мой софт |
+
+---
+
+### Farm card steam:
+
+| Название: | Сайт: | Описание: |
+|-|-|-|
+| GamesFoFarm | https://gamesforfarm.com/ | Магазин для покупки оптом ключей игр |
+| ArchiSteamFarm | https://github.com/JustArchiNET/ArchiSteamFarm | Фарм бот |
+| accsmoll | https://accsmoll.com/ | Магаз различных аккаунтов |
