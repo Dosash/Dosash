@@ -34,7 +34,7 @@
 
 - **Twitch**: [dosash](https://twitch.tv/dosash) - Основные стримы
 - **YouTube**: [Основной канал](https://youtube.com/@dosash) - Полные записи всего
-- **YouTube**: [Клипы](https://youtube.com/@dosash-clips) - Короткие моменты
+- **YouTube**: [Стримы](https://www.youtube.com/@dosash/streams) - Прямые эфиры
 - **GitHub**: [dosash](https://github.com/dosash) - Исходные коды проектов
 
 ## 💖 Поддержка
