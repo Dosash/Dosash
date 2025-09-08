@@ -3,92 +3,329 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Игровой Сайт</title>
-    <style>
-        body {
-            font-family: 'Courier New', Courier, monospace; /* Шрифт в стиле компьютерных игр */
-            background-image: url('https://www.transparenttextures.com/patterns/paper.png'); /* Фон для текстуры */
-            background-color: #202020; /* Темный фон */
-            color: #ffffff;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
-        header {
-            background: rgba(0, 119, 204, 0.8); /* Полупрозрачный фон */
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-            border-bottom: 5px solid #ffcc00;
-        }
-        h1, h2 {
-            margin: 0;
-        }
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-            padding: 20px;
-            background: rgba(50, 50, 50, 0.8); /* Полупрозрачный фоновый цвет для контейнера */
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
-        }
-        p {
-            margin: 20px 0;
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        li {
-            padding: 10px 0;
-        }
-        a {
-            color: #ffcc00; /* Золотистый цвет для ссылок */
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        a:hover {
-            color: #ffffff; /* Изменение цвета при наведении */
-            text-decoration: underline;
-            filter: brightness(1.2); /* Увеличение яркости ссылки */
-        }
-        footer {
-            text-align: center;
-            margin-top: 30px;
-            padding: 10px 0;
-            background: rgba(0, 119, 204, 0.8);
-            color: white;
-            border-top: 5px solid #ffcc00;
-        }
-    </style>
+    <title>Dosash - Стример • Геймер • Любитель технологий</title>
+    <meta name="description" content="Dosash - стример и любитель игр. Провожу стримы на Twitch, создаю контент для YouTube и увлекаюсь настройкой серверов и софта для всего.">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Navigation Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <h2>Dosash</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#games" class="nav-link">Games</a></li>
+                <li><a href="#streaming" class="nav-link">Streaming</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Переключить тему">
+                <span class="theme-icon">🌙</span>
+            </button>
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Открыть меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
 
-<header>
-    <h1>Тут должен быть сайт!</h1>
-    <h2>Но его нет!</h2>
-</header>
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 class="hero-title">
+                            Привет! Я <span class="gradient-text">Dosash</span>
+                        </h1>
+                        <p class="hero-subtitle">Стример • Геймер • Любитель технологий</p>
+                        <p class="hero-description">
+                            Провожу стримы на Twitch, создаю контент для YouTube и увлекаюсь настройкой серверов и софта для всего. 
+                            Добро пожаловать в мой игровой мир!
+                        </p>
+                        <div class="hero-stats">
+                            <div class="stat">
+                                <span class="stat-number">50+</span>
+                                <span class="stat-label">пройденных игр</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">2</span>
+                                <span class="stat-label">канала Twitch и YouTube</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">∞</span>
+                                <span class="stat-label">любви к играм</span>
+                            </div>
+                        </div>
+                        <div class="hero-buttons">
+                            <a href="#streaming" class="btn btn--primary">Смотреть стрим</a>
+                            <a href="https://twitch.tv/dosash" target="_blank" class="btn btn--outline">Twitch канал</a>
+                        </div>
+                    </div>
+                    <div class="hero-visual">
+                        <div class="avatar-container">
+                            <div class="avatar">
+                                <span class="avatar-text">D</span>
+                            </div>
+                            <div class="status-indicator online">
+                                <span class="status-dot"></span>
+                                <span>В сети</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<div class="container">
-    <p>Это просто заглушка для моего домена.</p>
-    <p>Ссылки на мои каналы:</p>
-    <ul>
-        <li><strong><a href="https://www.twitch.tv/dosash">Тwitch</a> канал где провожу стримы.</strong></li>
-        <li><strong>Основной <a href="https://www.youtube.com/@dosash">YouTube Канал</a>.</strong></li>
-        <li><strong>Второй <a href="https://www.youtube.com/@dosash">YouTube Канал</a> с короткими клипами.</strong></li>
-        <li><strong><a href="https://github.com/Dosash/Dosash/blob/main/Game/Completed_games.md">Список</a> пройденных игр.</strong></li>
-        <li><strong><a href="https://github.com/Dosash/Dosash/blob/main/Completed_F_and_S.md">Список</a> просмотренных фильмов и сериалов.</strong></li>
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <h2 class="section-title">Обо мне</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>
+                            Привет! Я Dosash - стример и любитель игр. 
+                            Провожу стримы на Twitch, создаю контент для YouTube и увлекаюсь настройкой серверов и софта для все.
+                        </p>
+                        <p>
+                            Играю в самые разные игры - от классических шутеров до современных инди-проектов. 
+                            Люблю делиться своим игровым опытом со зрителями и обсуждать прохождения.
+                            В свободное время изучаю новые технологии и настраиваю streaming setup.
+                        </p>
+                        <div class="skills">
+                            <span class="skill-tag">Gaming</span>
+                            <span class="skill-tag">YouTube</span>
+                            <span class="skill-tag">Twitch</span>
+                            <span class="skill-tag">Content Creation</span>
+                        </div>
+                    </div>
+                    <div class="about-info">
+                        <div class="info-card">
+                            <h4>Локация</h4>
+                            <p>🇷🇺 Россия</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>Платформы</h4>
+                            <p>Twitch, YouTube</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>Жанры</h4>
+                            <p>Шутеры, RPG, Инди</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    </ul>
-    <p>Эта страница создана с помощью GitHub. Основа <strong><a href="https://github.com/Dosash/Dosash">здесь!</a></strong></p>
-    <p>Если хотите поддержать меня, сделать это можно <strong><a href="https://pay.cloudtips.ru/p/894f4248">Рублём</a></strong> или <strong><a href="https://www.cropty.io/ru/@dosash">Криптой</a></strong></p>
-</div>
+        <!-- Games Section -->
+        <section id="games" class="games">
+            <div class="container">
+                <h2 class="section-title">Пройденные игры</h2>
+                <div class="games-grid">
+                    <div class="game-card"><div class="game-icon">🏆</div><span class="game-title">Half-Life</span><span class="game-subtitle">(Все части и дополнения!)</span></div>
+                    <div class="game-card"><div class="game-icon">🏆</div><span class="game-title">GTA 5</span><span class="game-subtitle">100%</span></div>
+                    <div class="game-card"><div class="game-icon">🏆</div><span class="game-title">Warcraft 3</span></div>
+                    <div class="game-card"><div class="game-icon">🏆</div><span class="game-title">Battlefield 3</span></div>
+                    <div class="game-card"><div class="game-icon">🏆</div><span class="game-title">Battlefield 4</span></div>
+                    <div class="game-card"><div class="game-icon">🏆</div><span class="game-title">Battlefield 1</span></div>
+                    <div class="game-card"><div class="game-icon">🏆</div><span class="game-title">Battlefield 5</span></div>
+                    <div class="game-card"><div class="game-icon">🏆</div><span class="game-title">TES Oblivion</span></div>
+                    <div class="game-card"><div class="game-icon">🏆</div><span class="game-title">TES Skyrim</span></div>
+                    <div class="game-card"><div class="game-icon">🏆</div><span class="game-title">Just Cause 3</span></div>
+                    <div class="game-card"><div class="game-icon">🏆</div><span class="game-title">Max Payne 1</span></div>
+                    <div class="game-card"><div class="game-icon">🏆</div><span class="game-title">Max Payne 2</span></div>
+                    <div class="game-card"><div class="game-icon">🏆</div><span class="game-title">Max Payne 3</span></div>
+                    <div class="game-card"><div class="game-icon">🏆</div><span class="game-title">DOOM (2016)</span></div>
+                    <div class="game-card"><div class="game-icon">🏆</div><span class="game-title">DOOM Eternal</span></div>
+                    <div class="game-card"><div class="game-icon">🏆</div><span class="game-title">DOOM Eternal DLC</span></div>
+                    <div class="game-card"><div class="game-icon">🏆</div><span class="game-title">Времена раздора</span></div>
+                    <div class="game-card"><div class="game-icon">🏆</div><span class="game-title">Hinterland</span></div>
+                    <div class="game-card"><div class="game-icon">🏆</div><span class="game-title">Bioshock</span></div>
+                    <div class="game-card"><div class="game-icon">🏆</div><span class="game-title">Bioshock 2</span></div>
+                    <div class="game-card"><div class="game-icon">🏆</div><span class="game-title">Bioshock Infinity</span></div>
+                    <div class="game-card"><div class="game-icon">🏆</div><span class="game-title">Diablo 3</span></div>
+                    <div class="game-card"><div class="game-icon">🏆</div><span class="game-title">Homefront: The Revolution</span></div>
+                    <div class="game-card"><div class="game-icon">🏆</div><span class="game-title">Murdered: Soul Suspect</span></div>
+                    <div class="game-card"><div class="game-icon">🏆</div><span class="game-title">Quantum Break</span></div>
+                    <div class="game-card"><div class="game-icon">🏆</div><span class="game-title">Alan Wake</span></div>
+                    <div class="game-card"><div class="game-icon">🏆</div><span class="game-title">CoD Ghosts</span></div>
+                    <div class="game-card"><div class="game-icon">🏆</div><span class="game-title">Singularity</span></div>
+                    <div class="game-card"><div class="game-icon">🏆</div><span class="game-title">Mafia 1</span></div>
+                    <div class="game-card"><div class="game-icon">🏆</div><span class="game-title">Mafia 2</span></div>
+                    <div class="game-card"><div class="game-icon">🏆</div><span class="game-title">Spec Ops: The Line</span></div>
+                    <div class="game-card"><div class="game-icon">🏆</div><span class="game-title">Gears 5</span></div>
+                    <div class="game-card"><div class="game-icon">🏆</div><span class="game-title">NieR: Automata</span></div>
+                    <div class="game-card"><div class="game-icon">🏆</div><span class="game-title">No Man's Sky</span></div>
+                    <div class="game-card"><div class="game-icon">🏆</div><span class="game-title">Rise of the Tomb Raider</span></div>
+                    <div class="game-card"><div class="game-icon">🏆</div><span class="game-title">Far Cry 5</span></div>
+                    <div class="game-card"><div class="game-icon">🏆</div><span class="game-title">Fractured</span></div>
+                    <div class="game-card"><div class="game-icon">🏆</div><span class="game-title">Dying Light</span></div>
+                    <div class="game-card"><div class="game-icon">🏆</div><span class="game-title">Dying Light 2</span></div>
+                    <div class="game-card"><div class="game-icon">🏆</div><span class="game-title">Darksiders</span></div>
+                    <div class="game-card"><div class="game-icon">🏆</div><span class="game-title">Pacific Drive</span></div>
+                    <div class="game-card"><div class="game-icon">🏆</div><span class="game-title">Rogue: Genesia</span></div>
+                    <div class="game-card"><div class="game-icon">🏆</div><span class="game-title">Netherworld Covenant</span></div>
+                    <div class="game-card"><div class="game-icon">🏆</div><span class="game-title">RoadCraft</span></div>
+                    <div class="game-card"><div class="game-icon">🏆</div><span class="game-title">Death Stranding</span></div>
+                    <div class="game-card"><div class="game-icon">🏆</div><span class="game-title">The Callisto Protocol</span></div>
+                    <div class="game-card"><div class="game-icon">🏆</div><span class="game-title">Shadow of the Tomb Raider</span></div>
+                    <div class="game-card"><div class="game-icon">🏆</div><span class="game-title">The Alters</span></div>
+                </div>
+            </div>
+        </section>
 
-<footer>
-    <p>© 2042 LifeSite. Все права защищены.</p>
-</footer>
+        <!-- Streaming Section -->
+        <section id="streaming" class="streaming">
+            <div class="container">
+                <h2 class="section-title">Стримы</h2>
+                <div class="streaming-content">
+                    <div class="stream-player">
+                        <div class="twitch-embed">
+                            <iframe 
+                                src="https://player.twitch.tv/?channel=dosash&parent=dosash.ru" 
+                                height="400" 
+                                width="100%" 
+                                allowfullscreen="true"
+                                frameborder="0">
+                            </iframe>
+                        </div>
+                    </div>
+                    <div class="stream-chat">
+                        <div class="chat-embed">
+                            <iframe 
+                                src="https://www.twitch.tv/embed/dosash/chat?parent=dosash.ru"" 
+                                height="400" 
+                                width="100%"
+                                frameborder="0">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="streaming-controls">
+                    <div class="streaming-links">
+                        <a href="https://twitch.tv/dosash" target="_blank" class="btn btn--primary">
+                            🎮 Twitch
+                        </a>
+                        <a href="https://youtube.com/@dosash" target="_blank" class="btn btn--outline">
+                            📹 YouTube Основной
+                        </a>
+                        <a href="https://youtube.com/@dosash-clips" target="_blank" class="btn btn--outline">
+                            ✂️ YouTube Клипы
+                        </a>
+                        <button id="open-chat" class="btn btn--secondary">
+                            💬 Открыть чат в новом окне
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title">Связаться со мной</h2>
+                <div class="contact-content">
+                    <div class="social-section">
+                        <h3>Социальные сети</h3>
+                        <div class="social-links">
+                            <a href="https://twitch.tv/dosash" target="_blank" class="social-link">
+                                <span class="social-icon">🎮</span>
+                                <div class="social-info">
+                                    <span class="social-title">Twitch</span>
+                                    <span class="social-description">Основной канал стримов</span>
+                                </div>
+                            </a>
+                            <a href="https://youtube.com/@dosash" target="_blank" class="social-link">
+                                <span class="social-icon">📹</span>
+                                <div class="social-info">
+                                    <span class="social-title">YouTube Основной</span>
+                                    <span class="social-description">Полные записи стримов</span>
+                                </div>
+                            </a>
+                            <a href="https://youtube.com/@dosash-clips" target="_blank" class="social-link">
+                                <span class="social-icon">✂️</span>
+                                <div class="social-info">
+                                    <span class="social-title">YouTube Клипы</span>
+                                    <span class="social-description">Лучшие моменты</span>
+                                </div>
+                            </a>
+                            <a href="https://github.com/dosash" target="_blank" class="social-link">
+                                <span class="social-icon">⚡</span>
+                                <div class="social-info">
+                                    <span class="social-title">GitHub</span>
+                                    <span class="social-description">Технические проекты</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="support-section">
+                        <h3>Поддержка</h3>
+                        <div class="support-links">
+
+                            <a href="https://pay.cloudtips.ru/p/894f4248" target="_blank" class="social-link">
+                                <span class="social-icon">💳</span>
+                                <div class="social-info">
+                                    <span class="social-title">Поддержать рублём</span>
+                                    <span class="social-description">Банковская карта</span>
+                                </div>
+                            </a>
+
+                            <a href="https://www.cropty.io/ru/@Dosash" target="_blank" class="social-link">
+                                <span class="social-icon">₿</span>
+                                <div class="social-info">
+                                    <span class="social-title">Поддержать криптой</span>
+                                    <span class="social-description">Криптовалюта</span>
+                                </div>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Dosash</h3>
+                    <p>Стример • Геймер • Любитель технологий</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#games">Games</a>
+                    <a href="#streaming">Streaming</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Dosash. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+
+    <!-- Add a placeholder for the Twitch embed -->
+<div id="twitch-embed"></div>
+
+<!-- Load the Twitch embed script -->
+<script src="https://player.twitch.tv/js/embed/v1.js"></script>
+
+<!-- Create a Twitch.Player object. This will render within the placeholder div -->
+<script type="text/javascript">
+  new Twitch.Player("twitch-embed", {
+    channel: "dosash"
+  });
+</script>
 
 </body>
-</html>
 </html>
