@@ -52,8 +52,8 @@
                                 <span class="stat-label">пройденных игр</span>
                             </div>
                             <div class="stat">
-                                <span class="stat-number">2</span>
-                                <span class="stat-label">канала Twitch и YouTube</span>
+                                <span class="stat-number">3</span>
+                                <span class="stat-label">Канала</span>
                             </div>
                             <div class="stat">
                                 <span class="stat-number">∞</span>
@@ -63,6 +63,7 @@
                         <div class="hero-buttons">
                             <a href="#streaming" class="btn btn--primary">Смотреть стрим</a>
                             <a href="https://twitch.tv/dosash" target="_blank" class="btn btn--outline">Twitch канал</a>
+                            <a href="https://kick.com/dosash1" target="_blank" class="btn btn--outline">Kick канал</a>
                             <a href="https://www.youtube.com/@dosash/" target="_blank" class="btn btn--outline">YouTube канал</a>
                         </div>
                     </div>
@@ -100,6 +101,7 @@
                             <span class="skill-tag">Gaming</span>
                             <span class="skill-tag">YouTube</span>
                             <span class="skill-tag">Twitch</span>
+                            <span class="skill-tag">Kick</span>
                             <span class="skill-tag">Content Creation</span>
                         </div>
                     </div>
@@ -110,7 +112,7 @@
                         </div>
                         <div class="info-card">
                             <h4>Платформы</h4>
-                            <p>Twitch, YouTube</p>
+                            <p>Twitch, Kick, YouTube</p>
                         </div>
                         <div class="info-card">
                             <h4>Жанры</h4>
@@ -147,44 +149,82 @@
         <section id="streaming" class="streaming">
             <div class="container">
                 <h2 class="section-title">Стримы</h2>
-                <div class="streaming-content">
-                    <div class="stream-player">
-                        <div class="twitch-embed">
-                            <iframe 
-                                src="https://player.twitch.tv/?channel=dosash&parent=dosash.ru" 
-                                height="400" 
-                                width="100%" 
-                                allowfullscreen="true"
-                                frameborder="0">
-                            </iframe>
-                        </div>
-                    </div>
-                    <div class="stream-chat">
-                        <div class="chat-embed">
-                            <iframe 
-                                src="https://www.twitch.tv/embed/dosash/chat?parent=dosash.ru"" 
-                                height="400" 
-                                width="100%"
-                                frameborder="0">
-                            </iframe>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="streaming-controls">
-                    <div class="streaming-links">
-                        <a href="https://twitch.tv/dosash" target="_blank" class="btn btn--primary">
+                <div class="streaming-container">
+                    <!-- Platform Buttons -->
+                    <div class="platform-buttons">
+                        <button id="twitch-btn" class="platform-btn active" data-platform="twitch" title="Переключить на Twitch">
                             🎮 Twitch
-                        </a>
-                        <a href="https://youtube.com/@dosash" target="_blank" class="btn btn--outline">
-                            📹 YouTube Основной
-                        </a>
-                        <a href="https://www.youtube.com/@dosash/streams" target="_blank" class="btn btn--outline">
-                            🔴 YouTube стримы
-                        </a>
-                        <button id="open-chat" class="btn btn--secondary">
-                            💬 Открыть чат в новом окне
                         </button>
+                        <button id="kick-btn" class="platform-btn" data-platform="kick" title="Переключить на Kick">
+                            ⚡ Kick
+                        </button>
+                    </div>
+                    
+                    <div class="streaming-content">
+                        <!-- Player Container -->
+                        <div class="player-container">
+                            <div class="player-wrapper" id="player-wrapper">
+                                <!-- Twitch Player -->
+                                <div class="player-frame twitch-player active" id="twitch-player">
+                                    <iframe 
+                                        src="https://player.twitch.tv/?channel=dosash&parent=localhost&parent=127.0.0.1&parent=dosash.ru&parent=www.dosash.ru" 
+                                        height="400" 
+                                        width="100%" 
+                                        allowfullscreen="true"
+                                        frameborder="0">
+                                    </iframe>
+                                </div>
+                                
+                                <!-- Kick Player -->
+                                <div class="player-frame kick-player" id="kick-player">
+                                    <iframe 
+                                        src="https://player.kick.com/dosash1" 
+                                        height="400" 
+                                        width="100%" 
+                                        allowfullscreen="true"
+                                        frameborder="0">
+                                    </iframe>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Chat Container -->
+                        <div class="chat-container">
+                            <!-- Twitch Chat -->
+                            <div class="chat-frame twitch-chat active" id="twitch-chat">
+                                <iframe 
+                                    src="https://www.twitch.tv/embed/dosash/chat?parent=localhost&parent=127.0.0.1&parent=dosash.ru&parent=www.dosash.ru" 
+                                    height="400" 
+                                    width="100%"
+                                    frameborder="0">
+                                </iframe>
+                            </div>
+                            
+                            <!-- Kick Chat -->
+                            <div class="chat-frame kick-chat" id="kick-chat">
+                                <iframe 
+                                    src="https://www.kick.com/dosash1/chatroom" 
+                                    height="400" 
+                                    width="100%"
+                                    frameborder="0">
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Controls -->
+                    <div class="streaming-controls">
+                        <div class="streaming-links">
+                            <button id="open-chat" class="btn btn--secondary">
+                                💬 Открыть чат в новом окне
+                            </button>
+                            <a href="https://youtube.com/@dosash" target="_blank" class="btn btn--outline">
+                                📹 YouTube Основной
+                            </a>
+                            <a href="https://youtube.com/@dosash-clips" target="_blank" class="btn btn--outline">
+                                ✂️ YouTube Клипы
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -203,6 +243,13 @@
                                 <div class="social-info">
                                     <span class="social-title">Twitch</span>
                                     <span class="social-description">Основной канал стримов</span>
+                                </div>
+                            </a>
+                            <a href="https://kick.com/dosash1" target="_blank" class="social-link">
+                                <span class="social-icon">🎮</span>
+                                <div class="social-info">
+                                    <span class="social-title">Kick</span>
+                                    <span class="social-description">Второстипенный канал для стримов</span>
                                 </div>
                             </a>
                             <a href="https://youtube.com/@dosash" target="_blank" class="social-link">

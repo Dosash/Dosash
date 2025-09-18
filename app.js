@@ -57,6 +57,192 @@ document.addEventListener('DOMContentLoaded', function() {
     // Fallback games list (extracted from the JSON structure)
     const fallbackGames = exampleJSONStructure.games;
 
+    // Platform switching state
+    let currentPlatform = 'twitch'; // Default platform
+
+    // Platform URLs for chat opening
+    const platformUrls = {
+        twitch: {
+            chat: 'https://www.twitch.tv/popout/dosash/chat?popout=',
+            channel: 'https://twitch.tv/dosash'
+        },
+        kick: {
+            chat: 'https://www.kick.com/dosash1/chatroom',
+            channel: 'https://kick.com/dosash1'
+        }
+    };
+
+    // Initialize platform switching functionality
+    initializePlatformSwitching();
+
+    // Platform switching functions
+    function initializePlatformSwitching() {
+        const twitchBtn = document.getElementById('twitch-btn');
+        const kickBtn = document.getElementById('kick-btn');
+
+        // Load saved platform preference
+        const savedPlatform = localStorage.getItem('preferred-platform') || 'twitch';
+        currentPlatform = savedPlatform;
+
+        // Set initial platform
+        if (currentPlatform === 'kick') {
+            switchToKick(false); // false = no animation on initial load
+        } else {
+            switchToTwitch(false);
+        }
+
+        // Add event listeners
+        if (twitchBtn) {
+            twitchBtn.addEventListener('click', () => switchToTwitch(true));
+        }
+        
+        if (kickBtn) {
+            kickBtn.addEventListener('click', () => switchToKick(true));
+        }
+
+        console.log(`🎮 Platform switching initialized. Current platform: ${currentPlatform}`);
+    }
+
+    function switchToTwitch(withAnimation = true) {
+        if (currentPlatform === 'twitch') return;
+        
+        currentPlatform = 'twitch';
+        localStorage.setItem('preferred-platform', 'twitch');
+        
+        // Update button states
+        updateActiveButton('twitch');
+        
+        // Switch players and chats
+        switchPlatformContent('twitch', withAnimation);
+        
+        if (withAnimation) {
+            showNotification('🎮 Переключено на Twitch!', 'success');
+        }
+        
+        console.log('✅ Switched to Twitch platform');
+    }
+
+    function switchToKick(withAnimation = true) {
+        if (currentPlatform === 'kick') return;
+        
+        currentPlatform = 'kick';
+        localStorage.setItem('preferred-platform', 'kick');
+        
+        // Update button states
+        updateActiveButton('kick');
+        
+        // Switch players and chats
+        switchPlatformContent('kick', withAnimation);
+        
+        if (withAnimation) {
+            showNotification('⚡ Переключено на Kick!', 'success');
+        }
+        
+        console.log('✅ Switched to Kick platform');
+    }
+
+    function updateActiveButton(platform) {
+        const twitchBtn = document.getElementById('twitch-btn');
+        const kickBtn = document.getElementById('kick-btn');
+        
+        if (twitchBtn && kickBtn) {
+            // Remove active class from both buttons
+            twitchBtn.classList.remove('active');
+            kickBtn.classList.remove('active');
+            
+            // Add active class to selected platform
+            if (platform === 'twitch') {
+                twitchBtn.classList.add('active');
+            } else {
+                kickBtn.classList.add('active');
+            }
+        }
+    }
+
+    function switchPlatformContent(platform, withAnimation = true) {
+        // Get all player and chat elements
+        const twitchPlayer = document.getElementById('twitch-player');
+        const kickPlayer = document.getElementById('kick-player');
+        const twitchChat = document.getElementById('twitch-chat');
+        const kickChat = document.getElementById('kick-chat');
+
+        if (!twitchPlayer || !kickPlayer || !twitchChat || !kickChat) {
+            console.error('❌ Platform switching elements not found');
+            return;
+        }
+
+        if (withAnimation) {
+            // Animate out current platform
+            const currentPlayerElements = document.querySelectorAll('.player-frame.active, .chat-frame.active');
+            currentPlayerElements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateX(-100%)';
+            });
+
+            // Wait for animation to complete, then switch
+            setTimeout(() => {
+                // Remove active class from all elements
+                document.querySelectorAll('.player-frame, .chat-frame').forEach(element => {
+                    element.classList.remove('active');
+                });
+
+                // Add active class to new platform elements
+                if (platform === 'twitch') {
+                    twitchPlayer.classList.add('active');
+                    twitchChat.classList.add('active');
+                } else {
+                    kickPlayer.classList.add('active');
+                    kickChat.classList.add('active');
+                }
+
+                // Reset and animate in new platform
+                setTimeout(() => {
+                    const newActiveElements = document.querySelectorAll('.player-frame.active, .chat-frame.active');
+                    newActiveElements.forEach(element => {
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateX(0)';
+                    });
+                }, 50);
+            }, 300);
+        } else {
+            // Instant switch without animation
+            document.querySelectorAll('.player-frame, .chat-frame').forEach(element => {
+                element.classList.remove('active');
+            });
+
+            if (platform === 'twitch') {
+                twitchPlayer.classList.add('active');
+                twitchChat.classList.add('active');
+            } else {
+                kickPlayer.classList.add('active');
+                kickChat.classList.add('active');
+            }
+        }
+    }
+
+    function openChatInNewWindow() {
+        const platformData = platformUrls[currentPlatform];
+        if (!platformData) {
+            showNotification('❌ Ошибка: неизвестная платформа', 'error');
+            return;
+        }
+
+        const chatUrl = platformData.chat;
+        const platformName = currentPlatform === 'twitch' ? 'Twitch' : 'Kick';
+        
+        const chatWindow = window.open(
+            chatUrl, 
+            `${platformName}Chat`, 
+            'width=400,height=600,scrollbars=yes,resizable=yes'
+        );
+        
+        if (chatWindow) {
+            showNotification(`💬 Чат ${platformName} открыт в новом окне!`, 'success');
+        } else {
+            showNotification('❌ Не удалось открыть чат. Проверьте настройки блокировки всплывающих окон.', 'error');
+        }
+    }
+
     // Games loading functionality
     async function loadGames() {
         const gamesGrid = document.getElementById('games-grid');
@@ -96,7 +282,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 renderGames(data.games);
                 updateGamesCount(data.games.length);
                 console.log('✅ Games loaded successfully from JSON file');
-                showNotification('🎮 Игры загружены из JSON файла!', 'success');
+                showNotification('🎮 Список игр загружен!', 'success');
             }, remainingTime);
             
         } catch (error) {
@@ -110,7 +296,7 @@ document.addEventListener('DOMContentLoaded', function() {
             setTimeout(() => {
                 // Show error message briefly
                 showGamesError();
-                showNotification('❌ Не удалось загрузить data/games.json. Используется резервный список игр.', 'warning');
+                showNotification('❌ Не удалось загрузить список игр. Используется резервный список игр.', 'warning');
                 
                 // Load fallback games after showing error
                 setTimeout(() => {
@@ -277,6 +463,7 @@ document.addEventListener('DOMContentLoaded', function() {
     themeToggle.addEventListener('click', function() {
         isDarkMode = !isDarkMode;
         updateTheme();
+        showNotification(`${isDarkMode ? '🌙' : '☀️'} Тема изменена на ${isDarkMode ? 'тёмную' : 'светлую'}`, 'success');
     });
     
     function updateTheme() {
@@ -366,6 +553,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     top: targetPosition,
                     behavior: 'smooth'
                 });
+                
+                showNotification(`📍 Переход к разделу "${targetId}"`, 'info');
             }
         });
     });
@@ -400,20 +589,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Open chat in new window functionality
     const openChatButton = document.getElementById('open-chat');
     if (openChatButton) {
-        openChatButton.addEventListener('click', function() {
-            const chatUrl = 'https://www.twitch.tv/popout/dosash/chat?popout=';
-            const chatWindow = window.open(
-                chatUrl, 
-                'TwitchChat', 
-                'width=400,height=600,scrollbars=yes,resizable=yes'
-            );
-            
-            if (chatWindow) {
-                showNotification('Чат открыт в новом окне! 💬', 'success');
-            } else {
-                showNotification('Не удалось открыть чат. Проверьте настройки блокировки всплывающих окон.', 'error');
-            }
-        });
+        openChatButton.addEventListener('click', openChatInNewWindow);
     }
     
     // Intersection Observer for animations
@@ -433,7 +609,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Observe elements for scroll animations
     const animatedElements = document.querySelectorAll(
-        '.game-card, .info-card, .social-link, .support-item'
+        '.info-card, .social-link, .support-item'
     );
     
     animatedElements.forEach(el => {
@@ -441,46 +617,6 @@ document.addEventListener('DOMContentLoaded', function() {
         el.style.transform = 'translateY(30px)';
         el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(el);
-    });
-    
-    // Staggered animation for grids
-    const grids = document.querySelectorAll('.games-grid, .social-links, .support-links');
-    grids.forEach(grid => {
-        const items = grid.children;
-        Array.from(items).forEach((item, index) => {
-            item.style.animationDelay = `${index * 0.1}s`;
-        });
-    });
-    
-    // Game cards interaction with different hover colors
-    const gameCards = document.querySelectorAll('.game-card');
-    const hoverColors = [
-        { border: 'var(--color-teal-500)', shadow: 'rgba(var(--color-teal-500-rgb), 0.2)' },
-        { border: 'var(--color-orange-500)', shadow: 'rgba(var(--color-orange-500-rgb), 0.2)' },
-        { border: 'var(--color-red-500)', shadow: 'rgba(var(--color-red-500-rgb), 0.2)' }
-    ];
-    
-    gameCards.forEach((card, index) => {
-        const colorIndex = index % hoverColors.length;
-        const colors = hoverColors[colorIndex];
-        
-        card.addEventListener('mouseenter', function() {
-            this.style.borderColor = colors.border;
-            this.style.boxShadow = `0 8px 25px ${colors.shadow}`;
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            this.style.borderColor = '';
-            this.style.boxShadow = '';
-        });
-        
-        // Add click effect for mobile
-        card.addEventListener('click', function() {
-            this.style.transform = 'scale(0.98)';
-            setTimeout(() => {
-                this.style.transform = '';
-            }, 150);
-        });
     });
     
     // Active navigation link highlighting
@@ -724,6 +860,9 @@ document.addEventListener('DOMContentLoaded', function() {
         } else if (type === 'error') {
             notification.style.borderColor = 'var(--color-error)';
             notification.style.background = 'rgba(var(--color-error-rgb), 0.1)';
+        } else if (type === 'warning') {
+            notification.style.borderColor = 'var(--color-warning)';
+            notification.style.background = 'rgba(var(--color-warning-rgb), 0.1)';
         }
         
         document.body.appendChild(notification);
@@ -792,6 +931,12 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     document.head.appendChild(rainbowStyle);
     
+    // Log instructions for using the JSON file
     console.log('🎮 Portfolio loaded successfully!');
+    console.log(`⚡ Current streaming platform: ${currentPlatform}`);
+    console.log('🔄 Platform switching functionality active');
     console.log('💡 Попробуйте использовать Konami Code для пасхалки!');
+    console.log('📁 Чтобы использовать динамическую загрузку игр, создайте файл data/games.json:');
+    console.log(JSON.stringify(exampleJSONStructure, null, 2));
+    console.log('🔄 После создания файла обновите страницу для загрузки игр из JSON');
 });
