@@ -5,6 +5,7 @@
 | Название: | Сайт: | Описание: |
 |-|-|-|
 | Twitch | https://www.twitch.tv/dosash/ | Мой Twtich |
+| Kick | https://www.twitch.tv/dosash/ | Мой Kick |
 | YouTube | https://www.youtube.com/@dosash | Мой YouTube |
 
 ---
@@ -38,3 +39,17 @@
 | GamesFoFarm | https://gamesforfarm.com/ | Магазин для покупки оптом ключей игр |
 | ArchiSteamFarm | https://github.com/JustArchiNET/ArchiSteamFarm | Фарм бот |
 | accsmoll | https://accsmoll.com/ | Магаз различных аккаунтов |
+
+---
+
+### Софт для обхода блокировок:
+| Название: | Сайт: | Описание: |
+|-|-|-|
+| ZDY | https://github.com/Flowseal/zapret-discord-youtube | Обход по DPI |
+| v2rayN | https://github.com/2dust/v2rayN | Для подключения к VPN |
+
+### Софт для записи и стримов
+| Название: | Сайт: | Описание: |
+|-|-|-|
+| OBS | https://github.com/obsproject/obs-studio | Для записи и стримов |
+| Plugin | https://github.com/sorayuki/obs-multi-rtmp | Для рестриминга |
