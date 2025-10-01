@@ -1,10 +1,20 @@
-# Решение некоторых проблем на HyperLand
-
+# Заметки по Linux
 
 ---
 
-Лучше добавить для поиска и установки нормально приложений: https://aur.chaotic.cx/docs 
+## Установка Zapret на linux
 
+**GitHub:** https://github.com/Snowy-Fluffy/zapret.installer
+
+`sh -c "$(curl -fsSL https://raw.githubusercontent.com/Snowy-Fluffy/zapret.installer/refs/heads/main/installer.sh)"`
+
+Вызов панели в дальнейшем: `zapret`
+
+---
+
+## Для Arch системы на Hyperland
+
+Лучше добавить для поиска и установки нормально приложений: https://aur.chaotic.cx/docs 
 
 ---
 
@@ -45,4 +55,5 @@ kb_options=grp:alt_shift_toggle
 `workspace=1, monitor:DP-3`
 
 `workspace=2, monitor:HDMI-A-1`
+
 
