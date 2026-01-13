@@ -1,4 +1,4 @@
-// Portfolio JavaScript functionality with dynamic games loading
+//  Portfolio JavaScript functionality with dynamic games loading
 document.addEventListener('DOMContentLoaded', function() {
     // JSON data structure example - this is what should be in data/games.json
     const exampleJSONStructure = {
@@ -79,6 +79,14 @@ document.addEventListener('DOMContentLoaded', function() {
     function initializePlatformSwitching() {
         const twitchBtn = document.getElementById('twitch-btn');
         const kickBtn = document.getElementById('kick-btn');
+        const twitchPlayer = document.getElementById('twitch-player');
+        const kickPlayer = document.getElementById('kick-player');
+        const twitchChat = document.getElementById('twitch-chat');
+        const kickChat = document.getElementById('kick-chat');
+
+        if (!twitchBtn || !kickBtn || !twitchPlayer || !kickPlayer || !twitchChat || !kickChat) {
+            return;
+        }
 
         // Load saved platform preference
         const savedPlatform = localStorage.getItem('preferred-platform') || 'twitch';
@@ -449,24 +457,29 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Initialize games loading
-    loadGames();
+    // Initialize games loading if the grid exists
+    const gamesGrid = document.getElementById('games-grid');
+    if (gamesGrid) {
+        loadGames();
+    }
 
     // Theme switching functionality
     const themeToggle = document.getElementById('theme-toggle');
     const themeIcon = document.querySelector('.theme-icon');
     let isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
     
-    // Set initial theme
-    updateTheme();
-    
-    themeToggle.addEventListener('click', function() {
-        isDarkMode = !isDarkMode;
+    if (themeToggle && themeIcon) {
+        // Set initial theme
         updateTheme();
-        showNotification(`${isDarkMode ? '🌙' : '☀️'} Тема изменена на ${isDarkMode ? 'тёмную' : 'светлую'}`, 'success');
-    });
-    
-    function updateTheme() {
+
+        themeToggle.addEventListener('click', function() {
+            isDarkMode = !isDarkMode;
+            updateTheme();
+            showNotification(`${isDarkMode ? '🌙' : '☀️'} Тема изменена на ${isDarkMode ? 'тёмную' : 'светлую'}`, 'success');
+        });
+    }
+
+function updateTheme() {
         if (isDarkMode) {
             document.documentElement.setAttribute('data-color-scheme', 'dark');
             themeIcon.textContent = '☀️';
@@ -481,12 +494,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const navMenu = document.querySelector('.nav-menu');
     let isMobileMenuOpen = false;
     
-    mobileMenuToggle.addEventListener('click', function() {
-        isMobileMenuOpen = !isMobileMenuOpen;
-        toggleMobileMenu();
-    });
+    if (mobileMenuToggle && navMenu) {
+        mobileMenuToggle.addEventListener('click', function() {
+            isMobileMenuOpen = !isMobileMenuOpen;
+            toggleMobileMenu();
+        });
+    }
     
     function toggleMobileMenu() {
+        if (!navMenu || !mobileMenuToggle) {
+            return;
+        }
         if (isMobileMenuOpen) {
             navMenu.style.display = 'flex';
             navMenu.style.position = 'absolute';
@@ -523,7 +541,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Close mobile menu when clicking on a link
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', function() {
-            if (window.innerWidth <= 768) {
+            if (window.innerWidth <= 768 && navMenu && mobileMenuToggle) {
                 isMobileMenuOpen = false;
                 toggleMobileMenu();
             }
@@ -532,7 +550,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Close mobile menu when clicking outside
     document.addEventListener('click', function(event) {
-        if (isMobileMenuOpen && !event.target.closest('.nav')) {
+        if (isMobileMenuOpen && navMenu && mobileMenuToggle && !event.target.closest('.nav')) {
             isMobileMenuOpen = false;
             toggleMobileMenu();
         }
@@ -563,28 +581,30 @@ document.addEventListener('DOMContentLoaded', function() {
     const header = document.querySelector('.header');
     let lastScrollY = window.scrollY;
     
-    window.addEventListener('scroll', function() {
-        const currentScrollY = window.scrollY;
-        
-        if (currentScrollY > 100) {
-            header.style.background = 'rgba(var(--color-surface), 0.95)';
-            header.style.backdropFilter = 'blur(20px)';
-            header.style.boxShadow = 'var(--shadow-sm)';
-        } else {
-            header.style.background = 'rgba(var(--color-background), 0.95)';
-            header.style.backdropFilter = 'blur(10px)';
-            header.style.boxShadow = 'none';
-        }
-        
-        // Hide/show header on scroll
-        if (currentScrollY > lastScrollY && currentScrollY > 200) {
-            header.style.transform = 'translateY(-100%)';
-        } else {
-            header.style.transform = 'translateY(0)';
-        }
-        
-        lastScrollY = currentScrollY;
-    });
+    if (header) {
+        window.addEventListener('scroll', function() {
+            const currentScrollY = window.scrollY;
+            
+            if (currentScrollY > 100) {
+                header.style.background = 'rgba(var(--color-surface), 0.95)';
+                header.style.backdropFilter = 'blur(20px)';
+                header.style.boxShadow = 'var(--shadow-sm)';
+            } else {
+                header.style.background = 'rgba(var(--color-background), 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+                header.style.boxShadow = 'none';
+            }
+            
+            // Hide/show header on scroll
+            if (currentScrollY > lastScrollY && currentScrollY > 200) {
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                header.style.transform = 'translateY(0)';
+            }
+            
+            lastScrollY = currentScrollY;
+        });
+    }
     
     // Open chat in new window functionality
     const openChatButton = document.getElementById('open-chat');
@@ -624,6 +644,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const sections = document.querySelectorAll('section[id]');
     
     function updateActiveNavLink() {
+        if (!header) {
+            return;
+        }
         const scrollY = window.scrollY;
         const headerHeight = document.querySelector('.header').offsetHeight;
         
@@ -643,7 +666,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    window.addEventListener('scroll', updateActiveNavLink);
+    if (header) {
+        window.addEventListener('scroll', updateActiveNavLink);
+    }
     
     // Add active class styles
     const style = document.createElement('style');
@@ -691,7 +716,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Handle window resize
     window.addEventListener('resize', function() {
-        if (window.innerWidth > 768 && isMobileMenuOpen) {
+        if (window.innerWidth > 768 && isMobileMenuOpen && navMenu && mobileMenuToggle) {
             isMobileMenuOpen = false;
             toggleMobileMenu();
         }
