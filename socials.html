@@ -1,84 +1,108 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dosash - Ссылки</title>
-    <meta name="description" content="Социальные сети Dosash: Twitch, Kick, YouTube и GitHub. Все ссылки собраны в одном месте.">
+    <title>Dosash — Ссылки</title>
+    <meta name="description" content="Социальные сети Dosash: Twitch, Kick, YouTube и GitHub. Все ссылки в одном месте.">
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="socials-page">
-    <!-- Navigation Header -->
-    
+    <header class="header">
+        <nav class="nav">
+            <a class="nav-brand" href="index.html">Dosash</a>
+            <ul class="nav-menu">
+                <li><a href="index.html#home" class="nav-link">Главная</a></li>
+                <li><a href="index.html#about" class="nav-link">Обо мне</a></li>
+                <li><a href="index.html#streaming" class="nav-link">Стрим</a></li>
+                <li><a href="index.html#contact" class="nav-link">Контакты</a></li>
+                <li><a href="socials.html" class="nav-link">Соцсети</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Переключить тему">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+        </nav>
+    </header>
 
     <main class="socials-main">
-        <section id="socials" class="socials-hero">
-            <div class="socials-bg">
-                <span class="socials-blob socials-blob--one"></span>
-                <span class="socials-blob socials-blob--two"></span>
-                <span class="socials-blob socials-blob--three"></span>
-                <span class="socials-grid"></span>
-            </div>
-            <div class="socials-card">
-                <div class="socials-profile">
-                    <div class="socials-avatar">
-                        <span class="socials-avatar-text">D</span>
+        <section class="socials-hero">
+            <div class="container">
+                <div class="socials-card">
+                    <div class="socials-profile">
+                        <div class="socials-avatar">D</div>
+                        <div>
+                            <div class="socials-handle">Dosash</div>
+                            <div class="socials-tagline">Стример, геймер, делаю контент и живые эфиры</div>
+                        </div>
                     </div>
-                    <div class="socials-profile-text">
-                        <p class="socials-handle">Dosash</p>
-                        <p class="socials-tagline">Стример, геймер, делаю контент</p>
+
+                    <div class="socials-group">
+                        <div class="socials-group-title">Донаты</div>
+                        <a href="https://pay.cloudtips.ru/p/894f4248" target="_blank" class="socials-link">
+                            <span class="socials-link-icon">CT</span>
+                            <span class="socials-link-text">CloudTips</span>
+                        </a>
+                        <a href="https://www.cropty.io/ru/@Dosash" target="_blank" class="socials-link">
+                            <span class="socials-link-icon">₿</span>
+                            <span class="socials-link-text">Крипто-донат</span>
+                        </a>
                     </div>
-                </div>
-            
-                <div class="socials-links">
-                    <p class="socials-handle">Донаты</p>
-                    <a href="https://pay.cloudtips.ru/p/894f4248" target="_blank" class="socials-link">
-                        <span class="socials-link-icon socials-link-icon--cloudtips">CT</span>
-                        <span class="socials-link-text"><b>Cloud</b>Tips</span>
-                    </a>
-                    <p class="socials-handle">Мои каналы:</p>
-                    <a href="https://twitch.tv/dosash" target="_blank" class="socials-link">
-                        <span class="socials-link-icon socials-link-icon--twitch">TW</span>
-                        <span class="socials-link-text">Twitch</span>
-                    </a>
-                    <a href="https://kick.com/dosash1" target="_blank" class="socials-link">
-                        <span class="socials-link-icon socials-link-icon--kick">KK</span>
-                        <span class="socials-link-text">Kick</span>
-                    </a>
-                    <a href="https://youtube.com/@dosash" target="_blank" class="socials-link">
-                        <span class="socials-link-icon socials-link-icon--youtube">YT</span>
-                        <span class="socials-link-text">YouTube Основной</span>
-                    </a>
-                    <a href="https://www.youtube.com/@dosash/streams" target="_blank" class="socials-link">
-                        <span class="socials-link-icon socials-link-icon--ytlive">YS</span>
-                        <span class="socials-link-text">YouTube Стримы</span>
-                    </a>
-                    <a href="https://github.com/dosash" target="_blank" class="socials-link">
-                        <span class="socials-link-icon socials-link-icon--github">GH</span>
-                        <span class="socials-link-text">GitHub</span>
-                    </a>
+
+                    <div class="socials-group">
+                        <div class="socials-group-title">Мои каналы</div>
+                        <a href="https://twitch.tv/dosash" target="_blank" class="socials-link">
+                            <span class="socials-link-icon">TW</span>
+                            <span class="socials-link-text">Twitch</span>
+                        </a>
+                        <a href="https://kick.com/dosash1" target="_blank" class="socials-link">
+                            <span class="socials-link-icon">KK</span>
+                            <span class="socials-link-text">Kick</span>
+                        </a>
+                        <a href="https://youtube.com/@dosash" target="_blank" class="socials-link">
+                            <span class="socials-link-icon">YT</span>
+                            <span class="socials-link-text">YouTube Основной</span>
+                        </a>
+                        <a href="https://www.youtube.com/@dosash/streams" target="_blank" class="socials-link">
+                            <span class="socials-link-icon">YS</span>
+                            <span class="socials-link-text">YouTube Стримы</span>
+                        </a>
+                        <a href="https://github.com/dosash" target="_blank" class="socials-link">
+                            <span class="socials-link-icon">GH</span>
+                            <span class="socials-link-text">GitHub</span>
+                        </a>
+                        <a href="https://discord.gg/WubwwU2bpM" target="_blank" class="socials-link">
+                            <span class="socials-link-icon">DC</span>
+                            <span class="socials-link-text">Discord RedImpact</span>
+                        </a>
+                    </div>
+
+                    <div class="socials-footer">
+                        <a href="index.html" class="btn btn--ghost">← На сайт</a>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
                     <h3>Dosash</h3>
-                    <p>Стример - Геймер - Любитель технологий</p>
+                    <p>Стример • Геймер • Технологии</p>
                 </div>
                 <div class="footer-links">
                     <a href="index.html">Главная</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Dosash. Все права защищены.</p>
+                <p>&copy; 2026 Dosash. Все права защищены.</p>
             </div>
         </div>
     </footer>
+
     <script src="app.js"></script>
 </body>
 </html>
