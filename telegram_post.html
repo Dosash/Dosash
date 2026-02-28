@@ -1,0 +1,665 @@
+﻿<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Telegram Post Sender</title>
+  <style>
+    :root {
+      --bg: #f4f6fb;
+      --card: #ffffff;
+      --text: #16213a;
+      --muted: #60708f;
+      --accent: #1f9d7a;
+      --accent-2: #0e6f8f;
+      --danger: #c03838;
+      --border: #d9e0ec;
+      --shadow: 0 10px 26px rgba(14, 29, 54, 0.09);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Tahoma", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 12% 12%, #d2f4e6 0%, transparent 28%),
+        radial-gradient(circle at 88% 2%, #d6ecff 0%, transparent 24%),
+        var(--bg);
+    }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 20px; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+    h1, h2 { margin: 0 0 12px; }
+    h1 { font-size: 24px; }
+    h2 { font-size: 18px; }
+    .row { display: flex; gap: 10px; flex-wrap: wrap; }
+    .col { flex: 1; min-width: 240px; }
+    label { display: block; font-size: 13px; margin-bottom: 6px; color: var(--muted); }
+    input, textarea, select {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 9px 10px;
+      font-size: 14px;
+      font-family: inherit;
+      background: #fff;
+    }
+    textarea { min-height: 110px; resize: vertical; }
+    button {
+      border: none;
+      border-radius: 10px;
+      padding: 9px 12px;
+      font-size: 14px;
+      cursor: pointer;
+      background: var(--accent);
+      color: #fff;
+    }
+    button.secondary { background: var(--accent-2); }
+    button.ghost { background: #eaf0fb; color: #264167; }
+    button.danger { background: var(--danger); }
+    .muted { color: var(--muted); font-size: 13px; }
+    .list { display: flex; flex-direction: column; gap: 8px; }
+    .item {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 8px;
+      background: #fbfcff;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .item span { flex: 1; word-break: break-all; }
+    .status { white-space: pre-wrap; font-size: 13px; background: #0f1b2f; color: #d8e4ff; padding: 10px; border-radius: 10px; min-height: 90px; }
+    .btn-grid { display: flex; flex-direction: column; gap: 8px; }
+    .btn-row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+    .btn-row input { min-width: 180px; flex: 1; }
+    .footer-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+    #chatList { display: grid; gap: 8px; }
+    #chatList.two-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .chat-item-main { display: flex; align-items: center; gap: 8px; flex: 1; }
+    .chat-item-main input[type="checkbox"] { width: auto; }
+    .item.selected {
+      border-color: #1f9d7a;
+      background: #e9f9f3;
+      box-shadow: inset 0 0 0 1px rgba(31,157,122,0.18);
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Telegram Post Sender (без backend)</h1>
+
+    <div class="card">
+      <h2>1) Доступ</h2>
+      <div class="row">
+        <div class="col">
+          <label for="token">Bot Token</label>
+          <input id="token" type="password" placeholder="123456:ABC..." />
+        </div>
+      </div>
+      <div class="row" style="margin-top:8px;">
+        <button id="saveToken">Сохранить токен в cookie</button>
+        <button id="clearToken" class="ghost">Очистить токен</button>
+      </div>
+      <p class="muted">Токен хранится только локально в cookie браузера.</p>
+    </div>
+
+    <div class="card">
+      <h2>2) Каналы / чаты / группы</h2>
+      <div class="row">
+        <div class="col">
+          <label for="chatInput">Chat ID или @username</label>
+          <input id="chatInput" placeholder="@my_channel или -1001234567890" />
+        </div>
+      </div>
+      <div class="row" style="margin-top:8px;">
+        <button id="addChat">Добавить</button>
+        <button id="selectAllChats" class="secondary">Выбрать все</button>
+        <button id="clearSelection" class="ghost">Снять выбор</button>
+        <button id="clearChats" class="ghost">Очистить список</button>
+      </div>
+      <div id="chatList" class="list" style="margin-top:10px;"></div>
+    </div>
+
+    <div class="card">
+      <h2>3) Пост</h2>
+      <div class="row">
+        <div class="col">
+          <label for="message">Текст сообщения</label>
+          <textarea id="message" placeholder="Текст поста"></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="mode">Режим отправки</label>
+          <select id="mode">
+            <option value="text">Только текст (sendMessage)</option>
+            <option value="photo">Одна картинка + текст (sendPhoto)</option>
+            <option value="album">Альбом картинок (sendMediaGroup)</option>
+          </select>
+        </div>
+        <div class="col">
+          <label for="parseMode">Parse mode</label>
+          <select id="parseMode">
+            <option value="">Без форматирования</option>
+            <option value="HTML">HTML</option>
+            <option value="MarkdownV2">MarkdownV2</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="photoUrl">URL картинки (для sendPhoto)</label>
+          <input id="photoUrl" placeholder="https://.../image.jpg" />
+        </div>
+        <div class="col">
+          <label for="photoFile">Или выбрать файл (для sendPhoto)</label>
+          <input id="photoFile" type="file" accept="image/*" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="albumUrls">URL картинок по одной строке (для sendMediaGroup)</label>
+          <textarea id="albumUrls" placeholder="https://.../1.jpg&#10;https://.../2.jpg"></textarea>
+        </div>
+        <div class="col">
+          <label for="albumFiles">Или выбрать несколько файлов (для sendMediaGroup)</label>
+          <input id="albumFiles" type="file" accept="image/*" multiple />
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4) Конструктор кнопок</h2>
+      <div class="row">
+        <button id="addButton" class="secondary">Добавить кнопку</button>
+        <button id="clearButtons" class="ghost">Очистить кнопки</button>
+      </div>
+      <p class="muted">Каждая строка: Текст, URL, номер ряда, стиль (цвет). Кнопки с одинаковым рядом идут в одну линию.</p>
+      <div id="buttonBuilder" class="btn-grid" style="margin-top:10px;"></div>
+    </div>
+
+    <div class="card">
+      <h2>5) Шаблоны постов</h2>
+      <div class="row">
+        <div class="col">
+          <label for="templateName">Название шаблона</label>
+          <input id="templateName" placeholder="Например: Анонс" />
+        </div>
+      </div>
+      <div class="row" style="margin-top:8px;">
+        <button id="saveTemplate">Сохранить шаблон</button>
+      </div>
+      <div id="templateList" class="list" style="margin-top:10px;"></div>
+    </div>
+
+    <div class="card">
+      <h2>6) Отправка</h2>
+      <div class="footer-actions">
+        <button id="sendAll">Отправить во все выбранные чаты</button>
+      </div>
+      <p class="muted">Для альбома Telegram не поддерживает inline-кнопки вместе с sendMediaGroup. Кнопки отправятся отдельным сообщением после альбома.</p>
+      <div id="status" class="status" style="margin-top:10px;"></div>
+    </div>
+  </div>
+
+  <script>
+    const COOKIE_TOKEN = 'tg_bot_token';
+    const LS_CHATS = 'tg_chats';
+    const LS_TEMPLATES = 'tg_templates';
+
+    const tokenEl = document.getElementById('token');
+    const chatInputEl = document.getElementById('chatInput');
+    const chatListEl = document.getElementById('chatList');
+    const messageEl = document.getElementById('message');
+    const modeEl = document.getElementById('mode');
+    const parseModeEl = document.getElementById('parseMode');
+    const photoUrlEl = document.getElementById('photoUrl');
+    const photoFileEl = document.getElementById('photoFile');
+    const albumUrlsEl = document.getElementById('albumUrls');
+    const albumFilesEl = document.getElementById('albumFiles');
+    const buttonBuilderEl = document.getElementById('buttonBuilder');
+    const templateNameEl = document.getElementById('templateName');
+    const templateListEl = document.getElementById('templateList');
+    const statusEl = document.getElementById('status');
+
+    let chats = [];
+    let templates = [];
+    let buttons = [];
+
+    function setCookie(name, value, days = 180) {
+      const d = new Date();
+      d.setTime(d.getTime() + days * 24 * 60 * 60 * 1000);
+      document.cookie = `${name}=${encodeURIComponent(value)};expires=${d.toUTCString()};path=/;SameSite=Lax`;
+    }
+
+    function getCookie(name) {
+      const needle = `${name}=`;
+      return document.cookie.split(';').map(v => v.trim()).find(v => v.startsWith(needle))?.slice(needle.length) || '';
+    }
+
+    function deleteCookie(name) {
+      document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;SameSite=Lax`;
+    }
+
+    function saveLS(key, value) { localStorage.setItem(key, JSON.stringify(value)); }
+    function loadLS(key, fallback) {
+      try {
+        const v = localStorage.getItem(key);
+        return v ? JSON.parse(v) : fallback;
+      } catch {
+        return fallback;
+      }
+    }
+
+    function log(text) {
+      statusEl.textContent += `${new Date().toLocaleTimeString()}  ${text}\n`;
+      statusEl.scrollTop = statusEl.scrollHeight;
+    }
+
+    function normalizeChats(raw) {
+      if (!Array.isArray(raw)) return [];
+      return raw.map((item) => {
+        if (typeof item === "string") return { id: item, selected: true };
+        return {
+          id: String(item?.id || "").trim(),
+          selected: item?.selected !== false
+        };
+      }).filter(x => x.id);
+    }
+
+    function saveChats() {
+      saveLS(LS_CHATS, chats);
+    }
+
+    function renderChats() {
+      chatListEl.innerHTML = "";
+      chatListEl.classList.toggle("two-cols", chats.length > 5);
+
+      chats.forEach((chat, idx) => {
+        const row = document.createElement("div");
+        row.className = `item${chat.selected ? " selected" : ""}`;
+        row.innerHTML = `<div class="chat-item-main"><input type="checkbox" ${chat.selected ? "checked" : ""} data-a="check" /><span>${escapeHtml(chat.id)}</span></div><button class="danger" data-a="del">Удалить</button>`;
+
+        row.querySelector('[data-a="check"]').onchange = (e) => {
+          chats[idx].selected = e.target.checked;
+          saveChats();
+        };
+
+        row.querySelector('[data-a="del"]').onclick = () => {
+          chats.splice(idx, 1);
+          saveChats();
+          renderChats();
+        };
+
+        chatListEl.appendChild(row);
+      });
+
+      if (!chats.length) {
+        chatListEl.classList.remove("two-cols");
+        chatListEl.innerHTML = '<p class="muted">Список пуст</p>';
+      }
+    }
+
+    function renderButtons() {
+  buttonBuilderEl.innerHTML = '';
+  buttons.forEach((btn, idx) => {
+    const row = document.createElement('div');
+    row.className = 'btn-row';
+    const styleVal = (btn.style || '').trim();
+    row.innerHTML = `
+      <input placeholder="Текст" value="${escapeHtml(btn.text)}" data-f="text" />
+      <input placeholder="URL" value="${escapeHtml(btn.url)}" data-f="url" />
+      <input placeholder="Ряд" type="number" min="1" value="${btn.row}" data-f="row" style="max-width:90px;" />
+      <select data-f="style" style="max-width:170px;">
+        <option value="">Стандарт</option>
+        <option value="primary" ${styleVal === 'primary' ? 'selected' : ''}>primary (синяя)</option>
+        <option value="success" ${styleVal === 'success' ? 'selected' : ''}>success (зелёная)</option>
+        <option value="danger" ${styleVal === 'danger' ? 'selected' : ''}>danger (красная)</option>
+      </select>
+      <button class="danger">X</button>
+    `;
+    row.querySelectorAll('input, select').forEach(el => {
+      const handler = (e) => {
+        const f = e.target.dataset.f;
+        buttons[idx][f] = f === 'row'
+          ? Math.max(1, Number(e.target.value || 1))
+          : e.target.value;
+      };
+      el.oninput = handler;
+      el.onchange = handler;
+    });
+    row.querySelector('button').onclick = () => {
+      buttons.splice(idx, 1);
+      renderButtons();
+    };
+    buttonBuilderEl.appendChild(row);
+  });
+  if (!buttons.length) buttonBuilderEl.innerHTML = '<p class="muted">Кнопок нет</p>';
+}
+
+function escapeHtml(s) {
+      return (s || '')
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;');
+    }
+
+    function buildReplyMarkup() {
+  const valid = buttons.filter(b => (b.text || '').trim() && (b.url || '').trim());
+  if (!valid.length) return null;
+
+  const rows = {};
+  valid.forEach(b => {
+    const key = String(Math.max(1, Number(b.row) || 1));
+    if (!rows[key]) rows[key] = [];
+
+    const item = { text: String(b.text).trim(), url: String(b.url).trim() };
+    const style = String(b.style || '').trim();
+    if (['primary', 'success', 'danger'].includes(style)) item.style = style;
+
+    rows[key].push(item);
+  });
+
+  const inline_keyboard = Object.keys(rows)
+    .sort((a, b) => Number(a) - Number(b))
+    .map(k => rows[k]);
+
+  return { inline_keyboard };
+}
+
+function readFormData() {
+      return {
+        message: messageEl.value,
+        mode: modeEl.value,
+        parse_mode: parseModeEl.value || undefined,
+        photoUrl: photoUrlEl.value.trim(),
+        photoFile: photoFileEl.files[0] || null,
+        albumUrls: albumUrlsEl.value.split('\n').map(s => s.trim()).filter(Boolean),
+        albumFiles: Array.from(albumFilesEl.files || []),
+        buttons: structuredClone(buttons)
+      };
+    }
+
+    function applyTemplate(tpl) {
+      messageEl.value = tpl.message || '';
+      modeEl.value = tpl.mode || 'text';
+      parseModeEl.value = tpl.parse_mode || '';
+      photoUrlEl.value = tpl.photoUrl || '';
+      albumUrlsEl.value = (tpl.albumUrls || []).join('\n');
+      photoFileEl.value = '';
+      albumFilesEl.value = '';
+      buttons = structuredClone(tpl.buttons || []);
+      renderButtons();
+    }
+
+    function renderTemplates() {
+      templateListEl.innerHTML = '';
+      templates.forEach((tpl, idx) => {
+        const row = document.createElement('div');
+        row.className = 'item';
+        row.innerHTML = `<span>${escapeHtml(tpl.name)}</span>
+          <button class="secondary" data-a="load">Применить</button>
+          <button class="danger" data-a="del">Удалить</button>`;
+        row.querySelector('[data-a="load"]').onclick = () => applyTemplate(tpl);
+        row.querySelector('[data-a="del"]').onclick = () => {
+          templates.splice(idx, 1);
+          saveLS(LS_TEMPLATES, templates);
+          renderTemplates();
+        };
+        templateListEl.appendChild(row);
+      });
+      if (!templates.length) templateListEl.innerHTML = '<p class="muted">Шаблонов нет</p>';
+    }
+
+    async function tgRequest(token, method, body) {
+      const res = await fetch(`https://api.telegram.org/bot${token}/${method}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body)
+      });
+      const data = await res.json();
+      if (!res.ok || !data.ok) {
+        throw new Error(data.description || `HTTP ${res.status}`);
+      }
+      return data;
+    }
+
+    async function tgRequestFormData(token, method, formData) {
+      const res = await fetch(`https://api.telegram.org/bot${token}/${method}`, {
+        method: 'POST',
+        body: formData
+      });
+      const data = await res.json();
+      if (!res.ok || !data.ok) {
+        throw new Error(data.description || `HTTP ${res.status}`);
+      }
+      return data;
+    }
+
+    async function sendToChat(token, chatId, data) {
+      const reply_markup = buildReplyMarkup();
+
+      if (data.mode === 'text') {
+        const payload = {
+          chat_id: chatId,
+          text: data.message || ' ',
+          parse_mode: data.parse_mode
+        };
+        if (reply_markup) payload.reply_markup = reply_markup;
+        await tgRequest(token, 'sendMessage', payload);
+        return;
+      }
+
+      if (data.mode === 'photo') {
+        const payload = {
+          chat_id: chatId,
+          caption: data.message || '',
+          parse_mode: data.parse_mode
+        };
+        if (reply_markup) payload.reply_markup = reply_markup;
+
+        if (data.photoFile) {
+          const fd = new FormData();
+          fd.append('chat_id', String(payload.chat_id));
+          fd.append('photo', data.photoFile, data.photoFile.name || 'photo.jpg');
+          if (payload.caption) fd.append('caption', payload.caption);
+          if (payload.parse_mode) fd.append('parse_mode', payload.parse_mode);
+          if (payload.reply_markup) fd.append('reply_markup', JSON.stringify(payload.reply_markup));
+          await tgRequestFormData(token, 'sendPhoto', fd);
+          return;
+        }
+
+        if (!data.photoUrl) throw new Error('Укажите URL картинки или выберите файл для sendPhoto');
+        payload.photo = data.photoUrl;
+        await tgRequest(token, 'sendPhoto', payload);
+        return;
+      }
+
+      if (data.mode === 'album') {
+        const totalCount = data.albumUrls.length + data.albumFiles.length;
+        if (totalCount < 2) {
+          throw new Error('Для sendMediaGroup нужно минимум 2 картинки (URL и/или файлы)');
+        }
+
+        if (data.albumFiles.length > 0) {
+          const fd = new FormData();
+          const media = [];
+
+          data.albumUrls.forEach((url, i) => {
+            const item = { type: 'photo', media: url };
+            if (i === 0 && !data.albumFiles.length && data.message) {
+              item.caption = data.message;
+              if (data.parse_mode) item.parse_mode = data.parse_mode;
+            }
+            media.push(item);
+          });
+
+          data.albumFiles.forEach((file, i) => {
+            const attachName = `file${i}`;
+            const item = { type: 'photo', media: `attach://${attachName}` };
+            if (media.length === 0 && i === 0 && data.message) {
+              item.caption = data.message;
+              if (data.parse_mode) item.parse_mode = data.parse_mode;
+            }
+            media.push(item);
+            fd.append(attachName, file, file.name || `${attachName}.jpg`);
+          });
+
+          fd.append('chat_id', String(chatId));
+          fd.append('media', JSON.stringify(media));
+          await tgRequestFormData(token, 'sendMediaGroup', fd);
+        } else {
+          const media = data.albumUrls.map((url, i) => {
+            const item = { type: 'photo', media: url };
+            if (i === 0 && data.message) {
+              item.caption = data.message;
+              if (data.parse_mode) item.parse_mode = data.parse_mode;
+            }
+            return item;
+          });
+
+          await tgRequest(token, 'sendMediaGroup', {
+            chat_id: chatId,
+            media
+          });
+        }
+
+        if (reply_markup) {
+          await tgRequest(token, 'sendMessage', {
+            chat_id: chatId,
+            text: 'Кнопки:',
+            reply_markup
+          });
+        }
+      }
+    }
+
+    document.getElementById('saveToken').onclick = () => {
+      if (!tokenEl.value.trim()) return alert('Введите токен');
+      setCookie(COOKIE_TOKEN, tokenEl.value.trim());
+      log('Токен сохранен в cookie');
+    };
+
+    document.getElementById('clearToken').onclick = () => {
+      deleteCookie(COOKIE_TOKEN);
+      tokenEl.value = '';
+      log('Токен удален');
+    };
+
+    document.getElementById("addChat").onclick = () => {
+      const v = chatInputEl.value.trim();
+      if (!v) return;
+      if (!chats.some(c => c.id === v)) chats.push({ id: v, selected: true });
+      chatInputEl.value = "";
+      saveChats();
+      renderChats();
+    };
+
+    document.getElementById("selectAllChats").onclick = () => {
+      chats.forEach(c => { c.selected = true; });
+      saveChats();
+      renderChats();
+    };
+
+    document.getElementById("clearSelection").onclick = () => {
+      chats.forEach(c => { c.selected = false; });
+      saveChats();
+      renderChats();
+    };
+
+    document.getElementById("clearChats").onclick = () => {
+      chats = [];
+      saveChats();
+      renderChats();
+    };
+
+    document.getElementById('addButton').onclick = () => {
+      buttons.push({ text: '', url: '', row: 1, style: '' });
+      renderButtons();
+    };
+
+    document.getElementById('clearButtons').onclick = () => {
+      buttons = [];
+      renderButtons();
+    };
+
+    document.getElementById('saveTemplate').onclick = () => {
+      const name = templateNameEl.value.trim();
+      if (!name) return alert('Введите имя шаблона');
+      const payload = readFormData();
+      delete payload.photoFile;
+      delete payload.albumFiles;
+      const idx = templates.findIndex(t => t.name === name);
+      const item = { name, ...payload };
+      if (idx >= 0) templates[idx] = item;
+      else templates.push(item);
+      saveLS(LS_TEMPLATES, templates);
+      renderTemplates();
+      templateNameEl.value = '';
+      log(`Шаблон "${name}" сохранен`);
+    };
+    function randomDelayMs(minMs, maxMs) {
+      return Math.floor(Math.random() * (maxMs - minMs + 1)) + minMs;
+    }
+
+    function sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+    document.getElementById('sendAll').onclick = async () => {
+      statusEl.textContent = '';
+      const token = tokenEl.value.trim();
+      if (!token) return alert('Введите токен');
+      if (!chats.length) return alert('Добавьте хотя бы один чат/канал');
+
+      const selectedChats = chats.filter(c => c.selected).map(c => c.id);
+      if (!selectedChats.length) return alert('Выберите хотя бы один канал/чат для отправки');
+
+      const data = readFormData();
+      log(`Старт отправки в ${selectedChats.length} выбранных чат(ов)`);
+
+      for (let i = 0; i < selectedChats.length; i += 1) {
+        const chatId = selectedChats[i];
+
+        try {
+          await sendToChat(token, chatId, data);
+          log(`[OK] ${chatId}`);
+        } catch (e) {
+          log(`[ERR] ${chatId} -> ${e.message}`);
+        }
+
+        if (i < selectedChats.length - 1) {
+          const waitMs = randomDelayMs(5000, 7000);
+          log(`Пауза ${Math.round(waitMs / 1000)} сек перед следующим чатом...`);
+          await sleep(waitMs);
+        }
+      }
+
+      log('Готово');
+    };
+
+    function init() {
+      tokenEl.value = decodeURIComponent(getCookie(COOKIE_TOKEN) || '');
+      chats = normalizeChats(loadLS(LS_CHATS, []));
+      templates = loadLS(LS_TEMPLATES, []);
+      renderChats();
+      renderButtons();
+      renderTemplates();
+      log('Страница готова');
+    }
+
+    init();
+  </script>
+</body>
+</html>
+
+
+
+
