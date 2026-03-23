@@ -24,11 +24,11 @@
 - `resources/` — заметки и полезные ресурсы
 - `Books/` — книги и цитаты
 
-## 🎯 Достижения
+## 🎯 Мои проекты
 
-- ✅ 40+ завершённых игр
-- 🏆 Живой в IRL
-- 🔧 Развитие
+- [RMZS](https://github.com/Dosash/Telegram-Post-Sender-No-Backend-) — RMZS фан сайт проекта RedImpact
+- [Telegram-Post-Sender-No-Backend-](https://github.com/Dosash/Telegram-Post-Sender-No-Backend-) — Проект страницы для отправки сообщений в Telegram-каналы без Backend
+- [WebPostTelegram](https://github.com/Dosash/WebPostTelegram) — Простое веб-приложение для отправки постов в Telegram-каналы
 
 ## 🔗 Социальные сети
 
@@ -40,7 +40,7 @@
 ## 💖 Поддержка
 
 Если вам нравится мой контент, вы можете поддержать меня:
-- **Рублём**: [Ссылка на донаты](https://pay.cloudtips.ru/p/894f4248)
+- **Рублём**: [Ссылка на донаты](https://t.me/send?start=IVoQmPAfgWnM)
 - **Криптой**: [Ссылка на крипто-донат](https://www.cropty.io/ru/@Dosash)
 
 ## 📄 Лицензия
@@ -48,4 +48,4 @@
 Этот проект распространяется под лицензией MIT. См. файл [LICENSE](LICENSE) для подробностей.
 
 ---
-*Последнее обновление: январь 2026*
+*Последнее обновление: февраль 2026*
