@@ -51,7 +51,31 @@ cp /opt/zapret/config /opt/zapret/config.bak.$(date +%F-%H%M%S)
 ```bash
 sed -i 's/^TPWS_SOCKS_ENABLE=.*/TPWS_SOCKS_ENABLE=1/' /opt/zapret/config
 sed -i 's/^TPPORT_SOCKS=.*/TPPORT_SOCKS=987/' /opt/zapret/config
+```
 
+### Рекомендуемый блок `TPWS_SOCKS_OPT`
+
+Открой конфиг:
+
+```bash
+nano /opt/zapret/config
+```
+
+Найди блок `TPWS_SOCKS_OPT` и приведи его к такому виду:
+
+```bash
+TPWS_SOCKS_OPT="
+--filter-tcp=80 --methodeol <HOSTLIST> --new
+--filter-tcp=443 --split-pos=1,midsld --disorder <HOSTLIST>
+--bind-addr=192.168.0.15
+"
+```
+
+> Такой вариант лучше использовать вместо старого `--split-tls=sni`, так как `--split-pos=1,midsld --disorder` — более актуальный и аккуратный способ для SOCKS5-режима `tpws`.
+
+После этого перезапусти `zapret`:
+
+```bash
 systemctl restart zapret
 systemctl status zapret --no-pager
 ```
