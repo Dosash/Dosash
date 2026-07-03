@@ -316,11 +316,11 @@ function updateTheme() {
             const currentScrollY = window.scrollY;
             
             if (currentScrollY > 100) {
-                header.style.background = 'rgba(var(--color-surface), 0.95)';
+                header.style.background = 'var(--header-bg-scrolled)';
                 header.style.backdropFilter = 'blur(20px)';
                 header.style.boxShadow = 'var(--shadow-sm)';
             } else {
-                header.style.background = 'rgba(var(--color-background), 0.95)';
+                header.style.background = 'var(--header-bg)';
                 header.style.backdropFilter = 'blur(10px)';
                 header.style.boxShadow = 'none';
             }

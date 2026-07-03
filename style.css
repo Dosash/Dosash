@@ -21,6 +21,36 @@
   --gap-md: 20px;
   --gap-sm: 12px;
   --container: 1180px;
+
+  /* Compatibility tokens used by app.js (notifications, tooltips, menu, header) */
+  --color-background: var(--bg);
+  --color-surface: var(--bg-alt);
+  --color-border: var(--border);
+  --color-text: var(--text);
+  --color-text-secondary: var(--text-muted);
+  --color-primary: var(--accent);
+  --color-success: #22c55e;
+  --color-success-rgb: 34, 197, 94;
+  --color-error: #ef4444;
+  --color-error-rgb: 239, 68, 68;
+  --color-warning: #f59e0b;
+  --color-warning-rgb: 245, 158, 11;
+
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+
+  --font-size-xs: 12px;
+  --font-size-lg: 18px;
+  --font-size-xl: 22px;
+
+  --shadow-sm: 0 6px 18px rgba(0, 0, 0, 0.28);
+  --shadow-lg: var(--shadow);
+
+  /* Header background (valid rgba values consumed by the scroll handler) */
+  --header-bg: rgba(8, 9, 12, 0.7);
+  --header-bg-scrolled: rgba(8, 9, 12, 0.92);
 }
 
 [data-color-scheme='light'] {
@@ -35,6 +65,18 @@
   --accent-2: #2563eb;
   --accent-3: #ef4444;
   --shadow: 0 20px 45px rgba(19, 20, 24, 0.12);
+
+  /* Compatibility tokens (light theme overrides) */
+  --color-background: var(--bg);
+  --color-surface: var(--bg-alt);
+  --color-border: var(--border);
+  --color-text: var(--text);
+  --color-text-secondary: var(--text-muted);
+  --color-primary: var(--accent);
+  --shadow-sm: 0 6px 18px rgba(19, 20, 24, 0.1);
+
+  --header-bg: rgba(255, 255, 255, 0.75);
+  --header-bg-scrolled: rgba(255, 255, 255, 0.92);
 }
 
 * {
