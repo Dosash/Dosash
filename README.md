@@ -26,7 +26,7 @@
 
 ## 🎯 Мои проекты
 
-- [RMZS](https://github.com/Dosash/Telegram-Post-Sender-No-Backend-) — RMZS фан сайт проекта RedImpact
+- [RMZS](https://github.com/Dosash/rmzs) — RMZS фан сайт проекта RedImpact
 - [Telegram-Post-Sender-No-Backend-](https://github.com/Dosash/Telegram-Post-Sender-No-Backend-) — Проект страницы для отправки сообщений в Telegram-каналы без Backend
 - [WebPostTelegram](https://github.com/Dosash/WebPostTelegram) — Простое веб-приложение для отправки постов в Telegram-каналы
 
