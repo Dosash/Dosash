@@ -2,9 +2,9 @@
 
 Готовая инструкция по установке `zapret`, включению SOCKS5 в `tpws` и пробросу HTTP-proxy через `Privoxy`.
 
-Proxmox контейнеру установлен статический *IP: 192.168.0.15* 
+Proxmox контейнеру установлен статический *IP: 192.168.1.50* 
 
-> В примерах ниже используется IP сервера: `192.168.0.15`  
+> В примерах ниже используется IP сервера: `192.168.1.50`  
 > Если у тебя другой IP — просто замени его в командах и настройках клиентов.
 
 ---
@@ -67,7 +67,7 @@ nano /opt/zapret/config
 TPWS_SOCKS_OPT="
 --filter-tcp=80 --methodeol <HOSTLIST> --new
 --filter-tcp=443 --split-pos=1,midsld --disorder <HOSTLIST>
---bind-addr=192.168.0.15
+--bind-addr=192.168.1.50
 "
 ```
 
@@ -90,7 +90,7 @@ ss -lntp | grep 987
 
 ```text
 LISTEN 0 10 127.0.0.1:987     0.0.0.0:*
-LISTEN 0 10 192.168.0.15:987  0.0.0.0:*
+LISTEN 0 10 192.168.1.50:987  0.0.0.0:*
 ```
 
 Проверка локально на сервере:
@@ -102,7 +102,7 @@ curl --socks5-hostname 127.0.0.1:987 https://example.com -I
 Проверка с другого устройства в сети:
 
 ```bash
-curl --socks5-hostname 192.168.0.15:987 https://example.com -I
+curl --socks5-hostname 192.168.1.50:987 https://example.com -I
 ```
 
 ---
@@ -112,7 +112,7 @@ curl --socks5-hostname 192.168.0.15:987 https://example.com -I
 Используй такие настройки:
 
 ```text
-SOCKS5 host: 192.168.0.15
+SOCKS5 host: 192.168.1.50
 Port: 987
 ```
 
@@ -148,8 +148,8 @@ sed -i '/^[[:space:]]*forward-socks5[[:space:]]/d' /etc/privoxy/config
 
 cat >> /etc/privoxy/config <<'EOF'
 
-listen-address  192.168.0.15:8118
-permit-access   192.168.0.0/24
+listen-address  192.168.1.50:8118
+permit-access   192.168.1.0/24
 forward-socks5  / 127.0.0.1:987 .
 EOF
 ```
@@ -176,7 +176,7 @@ curl -x http://127.0.0.1:8118 https://example.com -I
 Используй такие настройки:
 
 ```text
-HTTP proxy host: 192.168.0.15
+HTTP proxy host: 192.168.1.50
 Port: 8118
 ```
 
@@ -187,7 +187,7 @@ Port: 8118
 * выбрать сеть
 * `Configure Proxy`
 * `Manual`
-* `Server: 192.168.0.15`
+* `Server: 192.168.1.50`
 * `Port: 8118`
 
 
@@ -196,14 +196,14 @@ Port: 8118
 Если приложение поддерживает SOCKS5 — лучше использовать **SOCKS5** напрямую:
 
 ```text
-Host: 192.168.0.15
+Host: 192.168.1.50
 Port: 987
 ```
 
 Если приложение понимает только HTTP-proxy:
 
 ```text
-Host: 192.168.0.15
+Host: 192.168.1.50
 Port: 8118
 ```
 
@@ -293,8 +293,8 @@ apt-get install -y privoxy
 ```bash
 cat >> /etc/privoxy/config <<'EOF'
 
-listen-address  192.168.0.15:8118
-permit-access   192.168.0.0/24
+listen-address  192.168.1.50:8118
+permit-access   192.168.1.0/24
 forward-socks5  / 127.0.0.1:987 .
 EOF
 

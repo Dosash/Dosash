@@ -15,8 +15,10 @@
 Скрипт автоматически прописывает proxy-сервер в системные настройки Windows для текущего пользователя:
 
 ```text
-192.168.0.182:12323
+192.168.1.100:12323
 ```
+
+> IP и порт в примере — замени на адрес своего прокси-сервера.
 
 ---
 
@@ -25,9 +27,9 @@
 ```
 @echo off
 chcp 65001 >nul
-title Proxy ON - 192.168.0.182:12323
+title Proxy ON - 192.168.1.100:12323
 
-set "PROXY=192.168.0.182:12323"
+set "PROXY=192.168.1.100:12323"
 set "REG_KEY=HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings"
 
 echo Включаю системный proxy: %PROXY%
