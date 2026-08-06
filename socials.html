@@ -5,6 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dosash — Ссылки</title>
     <meta name="description" content="Социальные сети Dosash: Twitch, Kick, YouTube и GitHub. Все ссылки в одном месте.">
+    <script>
+      try {
+        var t = localStorage.getItem('preferred-theme');
+        if (t) { document.documentElement.setAttribute('data-color-scheme', t); }
+        else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+          document.documentElement.setAttribute('data-color-scheme', 'light');
+        }
+      } catch (e) {}
+    </script>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta name="theme-color" content="#08070f" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#f7f5ff" media="(prefers-color-scheme: light)">
+    <link rel="canonical" href="https://dosash.ru/socials.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dosash.ru/socials.html">
+    <meta property="og:title" content="Dosash — Ссылки">
+    <meta property="og:description" content="Социальные сети Dosash: Twitch, Kick, YouTube и GitHub. Все ссылки в одном месте.">
+    <meta property="og:locale" content="ru_RU">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Dosash — Ссылки">
+    <meta name="twitter:description" content="Социальные сети Dosash: Twitch, Kick, YouTube и GitHub. Все ссылки в одном месте.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 
     <!-- Google tag (gtag.js) -->
@@ -19,25 +43,47 @@
 
 </head>
 <body class="socials-page">
+    <a class="skip-link" href="#main">Перейти к содержимому</a>
+
+    <svg aria-hidden="true" style="display:none" xmlns="http://www.w3.org/2000/svg">
+        <symbol id="icon-twitch" viewBox="0 0 24 24"><path d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0 1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714Z"/></symbol>
+        <symbol id="icon-kick" viewBox="0 0 24 24"><path d="M1.333 0h8v5.333h2.667V2.667h2.667V0h8v8h-2.667v2.667h-2.667v2.666H20V16h2.667v8h-8v-2.667h-2.667v-2.666H9.333V24h-8Z"/></symbol>
+        <symbol id="icon-youtube" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></symbol>
+        <symbol id="icon-live" viewBox="0 0 24 24"><path d="M12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM5.1 18.9a9.75 9.75 0 0 1 0-13.8l1.42 1.42a7.75 7.75 0 0 0 0 10.96zm13.8 0-1.42-1.42a7.75 7.75 0 0 0 0-10.96L18.9 5.1a9.75 9.75 0 0 1 0 13.8zM8.05 15.95a5.6 5.6 0 0 1 0-7.9l1.42 1.42a3.6 3.6 0 0 0 0 5.06zm7.9 0-1.42-1.42a3.6 3.6 0 0 0 0-5.06l1.42-1.42a5.6 5.6 0 0 1 0 7.9z"/></symbol>
+        <symbol id="icon-github" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></symbol>
+        <symbol id="icon-discord" viewBox="0 0 24 24"><path d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></symbol>
+        <symbol id="icon-card" viewBox="0 0 24 24"><path d="M2 5h20a1.5 1.5 0 0 1 1.5 1.5v11A1.5 1.5 0 0 1 22 19H2A1.5 1.5 0 0 1 .5 17.5v-11A1.5 1.5 0 0 1 2 5zm.5 4.5h19V7h-19zm0 3v5h19v-5zm2 3.5h5V14h-5z"/></symbol>
+        <symbol id="icon-crypto" viewBox="0 0 24 24"><path d="M12 2 2 9l10 13L22 9zm0 3.1L18.6 9 12 18.3 5.4 9z"/></symbol>
+        <symbol id="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></symbol>
+        <symbol id="icon-sun" viewBox="0 0 24 24"><path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM11 1h2v4h-2zm0 18h2v4h-2zM1 11h4v2H1zm18 0h4v2h-4zM3.5 4.9 4.9 3.5l2.8 2.8-1.4 1.4zm12.8 12.8 1.4-1.4 2.8 2.8-1.4 1.4zM3.5 19.1l2.8-2.8 1.4 1.4-2.8 2.8zm12.8-12.8 2.8-2.8 1.4 1.4-2.8 2.8z"/></symbol>
+    </svg>
+
     <header class="header">
         <nav class="nav">
             <a class="nav-brand" href="index.html">Dosash</a>
-            <ul class="nav-menu">
+            <ul class="nav-menu" id="nav-menu">
                 <li><a href="index.html#home" class="nav-link">Главная</a></li>
                 <li><a href="index.html#about" class="nav-link">Обо мне</a></li>
                 <li><a href="index.html#streaming" class="nav-link">Стрим</a></li>
+                <li><a href="index.html#projects" class="nav-link">Проекты</a></li>
                 <li><a href="index.html#contact" class="nav-link">Контакты</a></li>
-                <li><a href="socials.html" class="nav-link">Соцсети</a></li>
+                <li><a href="socials.html" class="nav-link active">Соцсети</a></li>
             </ul>
             <div class="nav-actions">
-                <button class="theme-toggle" id="theme-toggle" aria-label="Переключить тему">
-                    <span class="theme-icon">🌙</span>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Переключить тему" aria-pressed="false">
+                    <svg class="icon icon-moon" aria-hidden="true"><use href="#icon-moon"/></svg>
+                    <svg class="icon icon-sun" aria-hidden="true"><use href="#icon-sun"/></svg>
+                </button>
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="nav-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </button>
             </div>
         </nav>
     </header>
 
-    <main class="socials-main">
+    <main class="socials-main" id="main">
         <section class="socials-hero">
             <div class="container">
                 <div class="socials-card">
@@ -51,60 +97,59 @@
 
                     <div class="socials-group">
                         <div class="socials-group-title">Донаты</div>
-                        <a href="https://pay.cloudtips.ru/p/894f4248" target="_blank" class="socials-link">
-                            <span class="socials-link-icon">CT</span>
+                        <a href="https://pay.cloudtips.ru/p/894f4248" target="_blank" rel="noopener" class="socials-link">
+                            <span class="socials-link-icon social-icon--card"><svg class="icon" aria-hidden="true"><use href="#icon-card"/></svg></span>
                             <span class="socials-link-text">CloudTips</span>
                         </a>
-                        <a href="https://t.me/send?start=IVoQmPAfgWnM" target="_blank" class="socials-link">
-                            <span class="socials-link-icon">₿</span>
+                        <a href="https://t.me/send?start=IVoQmPAfgWnM" target="_blank" rel="noopener" class="socials-link">
+                            <span class="socials-link-icon social-icon--crypto"><svg class="icon" aria-hidden="true"><use href="#icon-crypto"/></svg></span>
                             <span class="socials-link-text">Крипто-донат</span>
                         </a>
                     </div>
 
                     <div class="socials-group">
                         <div class="socials-group-title">Мои каналы</div>
-                        <a href="https://twitch.tv/dosash" target="_blank" class="socials-link">
-                            <span class="socials-link-icon">TW</span>
+                        <a href="https://twitch.tv/dosash" target="_blank" rel="noopener" class="socials-link">
+                            <span class="socials-link-icon social-icon--twitch"><svg class="icon" aria-hidden="true"><use href="#icon-twitch"/></svg></span>
                             <span class="socials-link-text">Twitch</span>
                         </a>
-                        <a href="https://kick.com/dosash1" target="_blank" class="socials-link">
-                            <span class="socials-link-icon">KK</span>
+                        <a href="https://kick.com/dosash1" target="_blank" rel="noopener" class="socials-link">
+                            <span class="socials-link-icon social-icon--kick"><svg class="icon" aria-hidden="true"><use href="#icon-kick"/></svg></span>
                             <span class="socials-link-text">Kick</span>
                         </a>
-                        <a href="https://youtube.com/@dosash" target="_blank" class="socials-link">
-                            <span class="socials-link-icon">YT</span>
+                        <a href="https://youtube.com/@dosash" target="_blank" rel="noopener" class="socials-link">
+                            <span class="socials-link-icon social-icon--youtube"><svg class="icon" aria-hidden="true"><use href="#icon-youtube"/></svg></span>
                             <span class="socials-link-text">YouTube Основной</span>
                         </a>
-                        <a href="https://www.youtube.com/@dosash/streams" target="_blank" class="socials-link">
-                            <span class="socials-link-icon">YS</span>
+                        <a href="https://www.youtube.com/@dosash/streams" target="_blank" rel="noopener" class="socials-link">
+                            <span class="socials-link-icon social-icon--youtube"><svg class="icon" aria-hidden="true"><use href="#icon-live"/></svg></span>
                             <span class="socials-link-text">YouTube Стримы</span>
                         </a>
-                        <a href="https://github.com/dosash" target="_blank" class="socials-link">
-                            <span class="socials-link-icon">GH</span>
+                        <a href="https://github.com/dosash" target="_blank" rel="noopener" class="socials-link">
+                            <span class="socials-link-icon social-icon--github"><svg class="icon" aria-hidden="true"><use href="#icon-github"/></svg></span>
                             <span class="socials-link-text">GitHub</span>
                         </a>
                     </div>
-                    
+
                     <div class="socials-group">
                         <div class="socials-group-title">Где я обитаю</div>
-                        <a href="https://discord.gg/WubwwU2bpM" target="_blank" class="socials-link">
-                            <span class="socials-link-icon">DC</span>
+                        <a href="https://discord.gg/WubwwU2bpM" target="_blank" rel="noopener" class="socials-link">
+                            <span class="socials-link-icon social-icon--discord"><svg class="icon" aria-hidden="true"><use href="#icon-discord"/></svg></span>
                             <span class="socials-link-text">Discord RedImpact</span>
                         </a>
-                        <a href="https://discord.com/invite/Mwbu5Cz" target="_blank" class="socials-link">
-                            <span class="socials-link-icon">DC</span>
+                        <a href="https://discord.com/invite/Mwbu5Cz" target="_blank" rel="noopener" class="socials-link">
+                            <span class="socials-link-icon social-icon--discord"><svg class="icon" aria-hidden="true"><use href="#icon-discord"/></svg></span>
                             <span class="socials-link-text">Discord ИдиСюдаНа</span>
                         </a>
-                        <a href="https://discord.com/invite/4QjCvtQxPk" target="_blank" class="socials-link">
-                            <span class="socials-link-icon">DC</span>
+                        <a href="https://discord.com/invite/4QjCvtQxPk" target="_blank" rel="noopener" class="socials-link">
+                            <span class="socials-link-icon social-icon--discord"><svg class="icon" aria-hidden="true"><use href="#icon-discord"/></svg></span>
                             <span class="socials-link-text">Discord KurceFAN</span>
                         </a>
-                        <a href="https://discord.gg/e7qwtDwS4f" target="_blank" class="socials-link">
-                            <span class="socials-link-icon">DC</span>
+                        <a href="https://discord.gg/e7qwtDwS4f" target="_blank" rel="noopener" class="socials-link">
+                            <span class="socials-link-icon social-icon--discord"><svg class="icon" aria-hidden="true"><use href="#icon-discord"/></svg></span>
                             <span class="socials-link-text">Discord LonelyLeaf</span>
                         </a>
-
-                    </div>   
+                    </div>
                     <div class="socials-footer">
                         <a href="index.html" class="btn btn--ghost">← На сайт</a>
                     </div>
@@ -122,6 +167,8 @@
                 </div>
                 <div class="footer-links">
                     <a href="index.html">Главная</a>
+                    <a href="index.html#projects">Проекты</a>
+                    <a href="index.html#contact">Контакты</a>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -130,6 +177,7 @@
         </div>
     </footer>
 
-    <script src="app.js"></script>
+    <div class="toast-region" role="status" aria-live="polite"></div>
+    <script src="app.js" defer></script>
 </body>
 </html>
