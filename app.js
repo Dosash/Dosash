@@ -104,8 +104,12 @@ document.addEventListener('DOMContentLoaded', function () {
     var openChatBtn = document.getElementById('open-chat');
     if (openChatBtn) {
         openChatBtn.addEventListener('click', function () {
-            var win = window.open(platformUrls[currentPlatform], '_blank', 'width=400,height=600,noopener');
-            if (!win) {
+            // 'noopener' в features заставил бы window.open вернуть null всегда —
+            // обнуляем opener вручную, чтобы null-проверка ловила реальную блокировку
+            var win = window.open(platformUrls[currentPlatform], '_blank', 'width=400,height=600');
+            if (win) {
+                win.opener = null;
+            } else {
                 showToast('Браузер заблокировал всплывающее окно — разреши попапы для этого сайта.');
             }
         });
@@ -139,7 +143,10 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
         document.addEventListener('keydown', function (event) {
-            if (event.key === 'Escape') { closeMenu(); }
+            if (event.key === 'Escape' && header.classList.contains('header--menu-open')) {
+                closeMenu();
+                menuToggle.focus();
+            }
         });
     }
 
@@ -221,7 +228,7 @@ document.addEventListener('DOMContentLoaded', function () {
             konamiIndex += 1;
             if (konamiIndex === konamiSequence.length) {
                 konamiIndex = 0;
-                showToast('🎮 Konami Code активирован! Ты настоящий геймер!', 6000);
+                showToast('🎮 Konami Code активирован! Добро пожаловать в секретную зону геймера! 🎮', 6000);
                 if (!reducedMotion) {
                     document.body.classList.add('party');
                     setTimeout(function () {
