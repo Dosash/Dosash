@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 — Страница не найдена | Dosash</title>
+    <meta name="description" content="Такой страницы нет. Вернись на главную dosash.ru.">
+    <meta name="robots" content="noindex">
+    <script>
+      try {
+        var t = localStorage.getItem('preferred-theme');
+        if (t) { document.documentElement.setAttribute('data-color-scheme', t); }
+        else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+          document.documentElement.setAttribute('data-color-scheme', 'light');
+        }
+      } catch (e) {}
+    </script>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="theme-color" content="#08070f" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#f7f5ff" media="(prefers-color-scheme: light)">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L3EEP2LRC2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-L3EEP2LRC2');
+</script>
+
+</head>
+<body>
+    <a class="skip-link" href="#main">Перейти к содержимому</a>
+
+    <svg aria-hidden="true" style="display:none" xmlns="http://www.w3.org/2000/svg">
+        <symbol id="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></symbol>
+        <symbol id="icon-sun" viewBox="0 0 24 24"><path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM11 1h2v4h-2zm0 18h2v4h-2zM1 11h4v2H1zm18 0h4v2h-4zM3.5 4.9 4.9 3.5l2.8 2.8-1.4 1.4zm12.8 12.8 1.4-1.4 2.8 2.8-1.4 1.4zM3.5 19.1l2.8-2.8 1.4 1.4-2.8 2.8zm12.8-12.8 2.8-2.8 1.4 1.4-2.8 2.8z"/></symbol>
+    </svg>
+
+    <header class="header">
+        <nav class="nav">
+            <a class="nav-brand" href="/">Dosash</a>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Переключить тему" aria-pressed="false">
+                    <svg class="icon icon-moon" aria-hidden="true"><use href="#icon-moon"/></svg>
+                    <svg class="icon icon-sun" aria-hidden="true"><use href="#icon-sun"/></svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main">
+        <section class="error-hero">
+            <div class="container">
+                <div class="error-code">404</div>
+                <h1 class="error-title">Страница не найдена</h1>
+                <p class="error-subtitle">Похоже, этот линк уже офлайн.</p>
+                <div class="error-actions">
+                    <a href="/" class="btn btn--primary">На главную</a>
+                    <a href="/socials.html" class="btn btn--ghost">Соцсети</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Dosash. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="toast-region" role="status" aria-live="polite"></div>
+    <script src="/app.js" defer></script>
+</body>
+</html>
