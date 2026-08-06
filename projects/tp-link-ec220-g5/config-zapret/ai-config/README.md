@@ -17,7 +17,7 @@
 
 ## 📁 Структура папки
 
-### 1. **Zapret_YouTube_Strategy_Analysis_RU.md** (Основной документ)
+### 1. **zapret-youtube-strategy-analysis-ru.md** (Основной документ)
 
 Полный анализ каждой из 10+ стратегий из официального GitHub `remittor/zapret-openwrt`.
 
@@ -33,7 +33,7 @@
 
 ---
 
-### 2. **Zapret_Quick_Start_RU.md** (Для спешки)
+### 2. **zapret-quick-start-ru.md** (Для спешки)
 
 Три готовых конфигурации для немедленного использования на TP-Link EC220-G5.
 
@@ -49,7 +49,7 @@
 
 ---
 
-### 3. **Zapret_Syntax_and_Errors_RU.md** (Справочник)
+### 3. **zapret-syntax-and-errors-ru.md** (Справочник)
 
 Справочник по правильному синтаксису Zapret конфигураций и 10 типичных ошибок.
 
@@ -88,8 +88,8 @@ NFQWS_OPT_DESYNC_QUIC="--dpi-desync=fake --dpi-desync-repeats=6"
 ```
 
 ### Если не работает:
-- Попробуйте **Вариант 2** или **Вариант 3** из `Zapret_Quick_Start_RU.md`
-- Посмотрите `Zapret_Syntax_and_Errors_RU.md` если есть ошибка синтаксиса
+- Попробуйте **Вариант 2** или **Вариант 3** из `zapret-quick-start-ru.md`
+- Посмотрите `zapret-syntax-and-errors-ru.md` если есть ошибка синтаксиса
 
 ---
 
@@ -97,11 +97,11 @@ NFQWS_OPT_DESYNC_QUIC="--dpi-desync=fake --dpi-desync-repeats=6"
 
 | Вопрос | Читай документ |
 |--------|---|
-| "Я просто хочу скопировать конфиг и забыть" | → **Zapret_Quick_Start_RU.md** |
-| "Почему эта стратегия не работает?" | → **Zapret_YouTube_Strategy_Analysis_RU.md** |
-| "Я получу ошибку при редактировании" | → **Zapret_Syntax_and_Errors_RU.md** |
-| "Я хочу понять как это работает" | → **Zapret_YouTube_Strategy_Analysis_RU.md** |
-| "Мой конфиг не работает" | → **Zapret_Syntax_and_Errors_RU.md** (раздел Ошибки) |
+| "Я просто хочу скопировать конфиг и забыть" | → **zapret-quick-start-ru.md** |
+| "Почему эта стратегия не работает?" | → **zapret-youtube-strategy-analysis-ru.md** |
+| "Я получу ошибку при редактировании" | → **zapret-syntax-and-errors-ru.md** |
+| "Я хочу понять как это работает" | → **zapret-youtube-strategy-analysis-ru.md** |
+| "Мой конфиг не работает" | → **zapret-syntax-and-errors-ru.md** (раздел Ошибки) |
 
 ---
 

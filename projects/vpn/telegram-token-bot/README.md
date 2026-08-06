@@ -7,12 +7,12 @@ npm init -y
 npm install dotenv node-telegram-bot-api
 ```
 ---
-Не забудь в **[.env](https://github.com/Dosash/Dosash/blob/7f83e61ef3c835f59b238c37416f4a0bf773ac6a/Notion/VPN/Bot_telegam_token_send/.env)** добавить токен телеграм бота.
+Не забудь создать файл **`.env`** рядом с ботом и добавить в него токен телеграм бота (файл в git не коммитится).
 
 ```BOT_TOKEN=Токен бота!```
 
 ---
-В **[keys.json](https://github.com/Dosash/Dosash/blob/7f83e61ef3c835f59b238c37416f4a0bf773ac6a/Notion/VPN/Bot_telegam_token_send/keys.json)** примеры какая должна быть база.
+В **[keys.json](./keys.json)** примеры какая должна быть база.
 В первой строке пример с двумя ключами, а во второй с одним.
 
 ```json
@@ -34,7 +34,7 @@ npm install dotenv node-telegram-bot-api
 [📋 Нажмите, чтобы скопировать]
 ```
 ---
-Так-же все готово для запуска в **[Docker контейнере](https://github.com/Dosash/Dosash/blob/a831838b43e6f38ef4aa793d81218c67617e8342/Notion/VPN/Bot_telegam_token_send/dockerfile)**.
+Так-же все готово для запуска в **[Docker контейнере](./Dockerfile)**.
 
 Запуск контейнера, сначала его нужно собрать первой командой, а второй командой запустить. 
 ```

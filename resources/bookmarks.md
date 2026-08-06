@@ -4,8 +4,8 @@
 
 | Название: | Сайт: | Описание: |
 |-|-|-|
-| Twitch | https://www.twitch.tv/dosash/ | Мой Twtich |
-| Kick | https://www.twitch.tv/dosash/ | Мой Kick |
+| Twitch | https://www.twitch.tv/dosash/ | Мой Twitch |
+| Kick | https://kick.com/dosash1 | Мой Kick |
 | YouTube | https://www.youtube.com/@dosash | Мой YouTube |
 
 ---
@@ -28,7 +28,6 @@
 |-|-|-|
 | TorrServe | https://github.com/YouROK/TorrServe/releases | Для запуска и просмотра фильмов в торрент файлах. |
 | Num | https://releases.yourok.ru/ | Для поиска фильмов в торрент файлах |
-| Soft | https://github.com/Dosash/Dosash/blob/main/Notion/soft/README.md | Ссылка на мой софт |
 
 ---
 

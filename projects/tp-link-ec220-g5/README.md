@@ -8,7 +8,7 @@
 ## Прошивка на Padavan
 
 **🔧 Подготовка:**
-1. 📤 Скачиваем прошивку: [Офф GitHub!](https://github.com/danayer/TP-Link-EC220-G5-v2.0-Padavan/releases) | **Из моего репозитория:** [Скачать](https://github.com/Dosash/Dosash/blob/5ec055385256a494a196cbe1ee92020f98201df0/Notion/TP-Link%20EC220-G5%20v2.0/Padavan/tp_recovery.bin) **( Версия: 2025.07.23_02.33.51 )**
+1. 📤 Скачиваем прошивку: [Офф GitHub!](https://github.com/danayer/TP-Link-EC220-G5-v2.0-Padavan/releases) | **Из моего репозитория:** [Скачать](./padavan/tp_recovery.bin) **( Версия: 2025.07.23_02.33.51 )**
 2. **⚠️ Важно:** Отключаем брандмауэр  
 3. 🔌 Подключаем кабель в **LAN** порт  
 4. ⚙️ Настраиваем IP в параметрах: Сеть и интернет, а там в Ethernet, настраиваем IPv4: 192.168.0.66 | Маска под сети: 255.255.255.0
@@ -31,7 +31,7 @@
 ## Прошивка на OpenWRT
 
 **🔧 Подготовка:**
-1. 📤 Скачиваем прошивку: [Офф сайт!](https://firmware-selector.openwrt.org/?version=SNAPSHOT&target=ramips%2Fmt7620&id=tplink_ec220-g5-v2) **(Не забудьте выбрать версию!)** | **Из моего репозитория:** [Скачать](https://github.com/Dosash/Dosash/blob/5ec055385256a494a196cbe1ee92020f98201df0/Notion/TP-Link%20EC220-G5%20v2.0/OpenWRT/tp_recovery.bin) **( Версия: 24.10.2 )**
+1. 📤 Скачиваем прошивку: [Офф сайт!](https://firmware-selector.openwrt.org/?version=SNAPSHOT&target=ramips%2Fmt7620&id=tplink_ec220-g5-v2) **(Не забудьте выбрать версию!)** | **Из моего репозитория:** [Скачать](./openwrt/tp_recovery.bin) **( Версия: 24.10.2 )**
 2. **⚠️ Важно:** Отключаем брандмауэр  
 3. 🔌 Подключаем кабель в **LAN** порт  
 4. ⚙️ Настраиваем IP в параметрах: Сеть и интернет, а там в Ethernet, настраиваем IPv4: 192.168.0.66 | Маска под сети: 255.255.255.0
