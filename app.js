@@ -1,4 +1,4 @@
-﻿document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
     // Platform switching state
     let currentPlatform = 'twitch'; // Default platform
 
