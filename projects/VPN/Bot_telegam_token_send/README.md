@@ -15,9 +15,9 @@ npm install dotenv node-telegram-bot-api
 В **[keys.json](https://github.com/Dosash/Dosash/blob/7f83e61ef3c835f59b238c37416f4a0bf773ac6a/Notion/VPN/Bot_telegam_token_send/keys.json)** примеры какая должна быть база.
 В первой строке пример с двумя ключами, а во второй с одним.
 
-```
+```json
 {
-  "987654321": ["KEY-FOR-USER-2-1", "KEY-FOR-USER-2-2"]
+  "123456789": ["KEY-FOR-USER-1-1", "KEY-FOR-USER-1-2"],
   "987654321": ["KEY-FOR-USER-2-1"]
 }
 ```
