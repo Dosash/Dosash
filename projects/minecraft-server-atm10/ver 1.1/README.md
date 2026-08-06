@@ -40,7 +40,7 @@ services:
     environment:
       EULA: "TRUE"
       TYPE: "AUTO_CURSEFORGE"
-      CF_API_KEY: '$$2a$$10$$ClWK.CpOrPufP4ErMnA6Bu4rNIS6KuxPdLcpr/yUbMabFy0GlTPIm' # Твой API ключ CurseForge
+      CF_API_KEY: '${CF_API_KEY}' # Твой API ключ CurseForge (берётся из файла .env)
       CF_PAGE_URL: "https://www.curseforge.com/minecraft/modpacks/all-the-mods-10" # Ссылка на модпак
       MEMORY: "8G"  # Оперативная память для сервера
       VERSION: 1.21.1 # Версия Minecraft сборки
@@ -58,7 +58,11 @@ services:
 
 - Зарегистрируйся или войди на [CurseForge API](https://console.curseforge.com/?#/api-keys)
 - Создай новый API ключ
-- Замените значение `CF_API_KEY` в `docker-compose.yml` на твой ключ (в кавычках!)
+- Рядом с `docker-compose.yml` создай файл `.env` и положи ключ туда:
+  ```
+  CF_API_KEY=твой-ключ-с-console.curseforge.com
+  ```
+- Docker Compose сам подставит значение из `.env` вместо `${CF_API_KEY}`. Никогда не коммить `.env` и сам ключ в git.
 
 ### 5. Запуск сервера
 

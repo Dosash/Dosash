@@ -1,5 +1,3 @@
-version: '4.4'
-
 services:
   atm10:
     image: my-atm10-server

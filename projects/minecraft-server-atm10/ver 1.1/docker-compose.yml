@@ -8,7 +8,7 @@ services:
     environment:
       EULA: "TRUE"
       TYPE: "AUTO_CURSEFORGE"
-      CF_API_KEY: '$$2a$$10$$ClWK.CpOrPufP4ErMnA6Bu4rNIS6KuxPdLcpr/yUbMabFy0GlTPIm' #Тут API ключ с сайта: https://console.curseforge.com/?#/api-keys
+      CF_API_KEY: '${CF_API_KEY}' #Ключ CurseForge — положи в файл .env рядом с compose (https://console.curseforge.com/?#/api-keys)
       CF_PAGE_URL: "https://www.curseforge.com/minecraft/modpacks/all-the-mods-10" #Тут ссылку на сборку из Curseforge
       MEMORY: "8G" #Выделение оперативной памяти
       VERSION: 1.21.1 #Версия Minecraft сборки
