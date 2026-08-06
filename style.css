@@ -121,8 +121,19 @@ body {
   color: var(--text);
   line-height: 1.6;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   overflow-x: hidden;
   transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+main {
+  flex: 1 0 auto;
+  width: 100%;
+}
+
+.footer {
+  margin-top: auto;
 }
 
 /* Неоновая сетка на фоне */
@@ -1476,7 +1487,8 @@ html.js .reveal.is-visible {
     height: 440px;
   }
 
-  /* Мобильное меню */
+  /* Мобильное меню: фон полностью непрозрачный — вложенный
+     backdrop-filter внутри блюренной шапки не работает по спецификации */
   .nav-menu {
     position: absolute;
     top: var(--header-h);
@@ -1486,9 +1498,7 @@ html.js .reveal.is-visible {
     align-items: stretch;
     gap: 0;
     padding: var(--gap-sm) var(--gap-md) var(--gap-md);
-    background: var(--header-bg);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
+    background: var(--bg-alt);
     border-bottom: 1px solid var(--border);
     box-shadow: var(--shadow-soft);
     display: none;
