@@ -12,8 +12,13 @@ npm install dotenv node-telegram-bot-api
 ```BOT_TOKEN=Токен бота!```
 
 ---
-В **[keys.json](https://github.com/Dosash/Dosash/blob/7f83e61ef3c835f59b238c37416f4a0bf773ac6a/Notion/VPN/Bot_telegam_token_send/keys.json)** примеры какая должна быть база.
+В **keys.example.json** — пример того, какой должна быть база.
 В первой строке пример с двумя ключами, а во второй с одним.
+Скопируй его в `keys.json` и подставь свои значения (`keys.json` не коммитится — он в `.gitignore`):
+
+```
+cp keys.example.json keys.json
+```
 
 ```json
 {

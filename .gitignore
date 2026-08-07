@@ -413,3 +413,7 @@ pyrightconfig.json
 **/.ssh/known_hosts
 
 # End of https://www.toptal.com/developers/gitignore/api/linux,git,python,obsidian,node,ssh,java
+
+### Project-specific secrets ###
+# Telegram bot key store — keep the real one out of the repo, commit keys.example.json instead
+**/keys.json

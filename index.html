@@ -5,6 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dosash — Стример • Геймер • Технологии</title>
     <meta name="description" content="Dosash — стример и геймер. Стримы на Twitch и Kick, контент на YouTube, проекты и настройки серверов.">
+    <link rel="canonical" href="https://dosash.ru/">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Dosash">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:url" content="https://dosash.ru/">
+    <meta property="og:title" content="Dosash — Стример • Геймер • Технологии">
+    <meta property="og:description" content="Стримы на Twitch и Kick, контент на YouTube, проекты и настройки серверов.">
+    <meta property="og:image" content="https://dosash.ru/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Dosash — Стример • Геймер • Технологии">
+    <meta name="twitter:description" content="Стримы на Twitch и Kick, контент на YouTube, проекты и настройки серверов.">
+    <meta name="twitter:image" content="https://dosash.ru/og-image.png">
+
+    <!-- Apply saved theme before paint to avoid a flash -->
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem('theme');
+          var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+          document.documentElement.setAttribute('data-color-scheme', theme);
+        } catch (e) {}
+      })();
+    </script>
+
+    <!-- Fonts (preconnect + non-blocking load instead of CSS @import) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap">
+
     <link rel="stylesheet" href="style.css">
 
     <!-- Google tag (gtag.js) -->
@@ -52,9 +84,9 @@
                         <p class="hero-subtitle">Стример, геймер и любитель технологий. Делаю живые стримы, веду YouTube и собираю сильное игровое комьюнити.</p>
                         <div class="hero-cta">
                             <a href="#streaming" class="btn btn--primary">Смотреть стрим</a>
-                            <a href="https://twitch.tv/dosash" target="_blank" class="btn btn--ghost">Twitch</a>
-                            <a href="https://kick.com/dosash1" target="_blank" class="btn btn--ghost">Kick</a>
-                            <a href="https://www.youtube.com/@dosash/" target="_blank" class="btn btn--ghost">YouTube</a>
+                            <a href="https://twitch.tv/dosash" target="_blank" rel="noopener noreferrer" class="btn btn--ghost">Twitch</a>
+                            <a href="https://kick.com/dosash1" target="_blank" rel="noopener noreferrer" class="btn btn--ghost">Kick</a>
+                            <a href="https://www.youtube.com/@dosash/" target="_blank" rel="noopener noreferrer" class="btn btn--ghost">YouTube</a>
                         </div>
                         <div class="hero-stats">
                             <div class="stat">
@@ -151,7 +183,8 @@
                                 </div>
                                 <div class="player-frame twitch-player active" id="twitch-player">
                                     <iframe 
-                                        src="https://player.twitch.tv/?channel=dosash&parent=localhost&parent=127.0.0.1&parent=dosash.ru&parent=www.dosash.ru" 
+                                        title="Twitch-плеер Dosash"
+                                        src="https://player.twitch.tv/?channel=dosash&parent=localhost&parent=127.0.0.1&parent=dosash.ru&parent=www.dosash.ru"
                                         height="420" 
                                         width="100%" 
                                         allowfullscreen="true"
@@ -160,7 +193,8 @@
                                 </div>
                                 <div class="player-frame kick-player" id="kick-player">
                                     <iframe 
-                                        src="https://player.kick.com/dosash1" 
+                                        title="Kick-плеер Dosash"
+                                        src="https://player.kick.com/dosash1"
                                         height="420" 
                                         width="100%" 
                                         allowfullscreen="true"
@@ -174,7 +208,8 @@
                                 <div class="chat-overlay">Chat</div>
                                 <div class="chat-frame twitch-chat active" id="twitch-chat">
                                     <iframe 
-                                        src="https://www.twitch.tv/embed/dosash/chat?parent=localhost&parent=127.0.0.1&parent=dosash.ru&parent=www.dosash.ru" 
+                                        title="Twitch-чат Dosash"
+                                        src="https://www.twitch.tv/embed/dosash/chat?parent=localhost&parent=127.0.0.1&parent=dosash.ru&parent=www.dosash.ru"
                                         height="420" 
                                         width="100%"
                                         frameborder="0">
@@ -182,7 +217,8 @@
                                 </div>
                                 <div class="chat-frame kick-chat" id="kick-chat">
                                     <iframe 
-                                        src="https://www.kick.com/dosash1/chatroom" 
+                                        title="Kick-чат Dosash"
+                                        src="https://www.kick.com/dosash1/chatroom"
                                         height="420" 
                                         width="100%"
                                         frameborder="0">
@@ -194,10 +230,10 @@
                     <div class="streaming-controls">
                         <button id="open-chat" class="btn btn--secondary">💬 Открыть чат в новом окне</button>
                         <div class="streaming-links">
-                            <a href="https://twitch.tv/dosash" target="_blank" class="btn btn--ghost">Twitch</a>
-                            <a href="https://kick.com/dosash1" target="_blank" class="btn btn--ghost">Kick</a>
-                            <a href="https://youtube.com/@dosash" target="_blank" class="btn btn--ghost">YouTube Основной</a>
-                            <a href="https://www.youtube.com/@dosash/streams" target="_blank" class="btn btn--ghost">YouTube Стримы</a>
+                            <a href="https://twitch.tv/dosash" target="_blank" rel="noopener noreferrer" class="btn btn--ghost">Twitch</a>
+                            <a href="https://kick.com/dosash1" target="_blank" rel="noopener noreferrer" class="btn btn--ghost">Kick</a>
+                            <a href="https://youtube.com/@dosash" target="_blank" rel="noopener noreferrer" class="btn btn--ghost">YouTube Основной</a>
+                            <a href="https://www.youtube.com/@dosash/streams" target="_blank" rel="noopener noreferrer" class="btn btn--ghost">YouTube Стримы</a>
                         </div>
                     </div>
                 </div>
@@ -214,42 +250,42 @@
                     <div class="contact-block">
                         <h3>Социальные сети</h3>
                         <div class="social-links">
-                            <a href="https://twitch.tv/dosash" target="_blank" class="social-link">
+                            <a href="https://twitch.tv/dosash" target="_blank" rel="noopener noreferrer" class="social-link">
                                 <span class="social-icon">🎮</span>
                                 <div class="social-info">
                                     <span class="social-title">Twitch</span>
                                     <span class="social-description">Основной канал стримов</span>
                                 </div>
                             </a>
-                            <a href="https://kick.com/dosash1" target="_blank" class="social-link">
+                            <a href="https://kick.com/dosash1" target="_blank" rel="noopener noreferrer" class="social-link">
                                 <span class="social-icon">⚡</span>
                                 <div class="social-info">
                                     <span class="social-title">Kick</span>
                                     <span class="social-description">Второстепенный канал</span>
                                 </div>
                             </a>
-                            <a href="https://youtube.com/@dosash" target="_blank" class="social-link">
+                            <a href="https://youtube.com/@dosash" target="_blank" rel="noopener noreferrer" class="social-link">
                                 <span class="social-icon">📺</span>
                                 <div class="social-info">
                                     <span class="social-title">YouTube Основной</span>
                                     <span class="social-description">Полные записи и клипы</span>
                                 </div>
                             </a>
-                            <a href="https://www.youtube.com/@dosash/streams" target="_blank" class="social-link">
+                            <a href="https://www.youtube.com/@dosash/streams" target="_blank" rel="noopener noreferrer" class="social-link">
                                 <span class="social-icon">🔴</span>
                                 <div class="social-info">
                                     <span class="social-title">YouTube Стримы</span>
                                     <span class="social-description">Прямые эфиры</span>
                                 </div>
                             </a>
-                            <a href="https://github.com/dosash" target="_blank" class="social-link">
+                            <a href="https://github.com/dosash" target="_blank" rel="noopener noreferrer" class="social-link">
                                 <span class="social-icon">💻</span>
                                 <div class="social-info">
                                     <span class="social-title">GitHub</span>
                                     <span class="social-description">Технические проекты</span>
                                 </div>
                             </a>
-                            <a href="https://discord.gg/WubwwU2bpM" target="_blank" class="social-link">
+                            <a href="https://discord.gg/WubwwU2bpM" target="_blank" rel="noopener noreferrer" class="social-link">
                                 <span class="social-icon">💬</span>
                                 <div class="social-info">
                                     <span class="social-title">Discord проекта</span>
@@ -261,14 +297,14 @@
                     <div class="contact-block">
                         <h3>Поддержка</h3>
                         <div class="support-links">
-                            <a href="https://pay.cloudtips.ru/p/894f4248" target="_blank" class="social-link support-item">
+                            <a href="https://pay.cloudtips.ru/p/894f4248" target="_blank" rel="noopener noreferrer" class="social-link support-item">
                                 <span class="social-icon">💳</span>
                                 <div class="social-info">
                                     <span class="social-title">Поддержать рублём</span>
                                     <span class="social-description">Банковская карта</span>
                                 </div>
                             </a>
-                            <a href="https://www.cropty.io/ru/@Dosash" target="_blank" class="social-link support-item">
+                            <a href="https://www.cropty.io/ru/@Dosash" target="_blank" rel="noopener noreferrer" class="social-link support-item">
                                 <span class="social-icon">₿</span>
                                 <div class="social-info">
                                     <span class="social-title">Поддержать криптой</span>

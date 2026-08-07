@@ -196,8 +196,11 @@
     // Theme switching functionality
     const themeToggle = document.getElementById('theme-toggle');
     const themeIcon = document.querySelector('.theme-icon');
-    let isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
+    const savedTheme = localStorage.getItem('theme');
+    let isDarkMode = savedTheme
+        ? savedTheme === 'dark'
+        : window.matchMedia('(prefers-color-scheme: dark)').matches;
+
     if (themeToggle && themeIcon) {
         // Set initial theme
         updateTheme();
@@ -210,6 +213,7 @@
     }
 
 function updateTheme() {
+        localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
         if (isDarkMode) {
             document.documentElement.setAttribute('data-color-scheme', 'dark');
             themeIcon.textContent = '☀️';
@@ -301,8 +305,6 @@ function updateTheme() {
                     top: targetPosition,
                     behavior: 'smooth'
                 });
-                
-                showNotification(`📍 Переход к разделу "${targetId}"`, 'info');
             }
         });
     });
