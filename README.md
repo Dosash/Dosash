@@ -65,7 +65,7 @@
 
 Если вам нравится мой контент, вы можете поддержать меня:
 - **Рублём**: [CloudTips](https://pay.cloudtips.ru/p/894f4248) — банковская карта
-- **Криптой**: [Telegram-кошелёк](https://t.me/send?start=IVoQmPAfgWnM) или [Cropty](https://www.cropty.io/ru/@Dosash)
+- **Криптой**: [Telegram-кошелёк](t.me/send?start=IVCyYmLsx06p)
 
 ## 📄 Лицензия
 
