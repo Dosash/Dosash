@@ -96,7 +96,7 @@
 
 ## 💖 Поддержать
 
-Если проекты пригодились: [CloudTips](https://pay.cloudtips.ru/p/894f4248) (карта) или [Telegram-кошелёк](https://t.me/send?start=IVCyYmLsx06p) (крипта).
+Если проекты пригодились: [CloudTips](https://pay.cloudtips.ru/p/894f4248) (карта) или [Telegram-кошелёк](https://t.me/send?start=IVoQmPAfgWnM) (крипта).
 
 ---
 
@@ -109,11 +109,12 @@
 
 **Сайт**
 
-- `index.html` — главная страница (обо мне, стримы, проекты, контакты)
+- `index.html` — главная страница: проекты, почему MIT, вне кода, ссылки
 - `socials.html` — все ссылки в одном месте
 - `telegram_post.html` — отправка постов в Telegram-каналы без бэкенда
 - `404.html` — страница ошибки
-- `style.css`, `app.js`, `favicon.svg` — стили, скрипты и иконка
+- `style.css`, `app.js`, `favicon.svg`, `og-image.png` — стили, скрипты, иконка и превью для ссылок
+- `assets/projects/` — иконки приложений для карточек проектов
 
 **Папки**
 
