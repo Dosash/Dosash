@@ -35,10 +35,18 @@
 </td>
 </tr>
 <tr>
-<td colspan="2" valign="top">
+<td width="50%" valign="top">
 
 ### 📢 [Бот продажи рекламы в Telegram-каналах](https://github.com/Dosash/ads-channel-bot)
 Сам продаёт рекламу в ваших каналах: каталог с ценами, подписчиками и ERR, выбор даты и часа, модерация поста, оплата через Telegram Stars, CryptoBot или xRocket и автопубликация в оплаченное время. Плюс веб-панель администратора, RU/EN и запуск одной командой в Docker.
+
+`Python` · `aiogram 3` · `aiohttp` · `SQLite` · `Docker`
+
+</td>
+<td width="50%" valign="top">
+
+### 🗓 [Бот публикации постов в Telegram-каналы](https://github.com/Dosash/post_channel_bot)
+Приватный бот и веб-панель для своих каналов: Markdown, фото, видео и альбомы, цветные кнопки-ссылки, отложенная публикация и контент-план с расписанием слотов для каждого канала. Папки каналов, статистика подписчиков и запуск одной командой в Docker.
 
 `Python` · `aiogram 3` · `aiohttp` · `SQLite` · `Docker`
 
