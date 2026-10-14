@@ -565,10 +565,10 @@ a:hover { color: var(--sage); text-decoration-color: currentColor; }
 .card--kupim,
 .card--roulette { grid-column: span 2; }
 .card--ads,
+.card--channel { grid-column: span 3; }
 .card--post { grid-column: span 6; }
 
 .card--slovo,
-.card--ads,
 .card--post {
   flex-direction: row;
   align-items: center;
@@ -577,10 +577,8 @@ a:hover { color: var(--sage); text-decoration-color: currentColor; }
 .card--slovo .card-text { justify-content: center; }
 .card--slovo .mock { margin-top: 0; }
 .card--slovo .card-text,
-.card--ads .card-text,
 .card--post .card-text { flex: 1 1 52%; }
 .card--slovo .mock,
-.card--ads .mock,
 .card--post .mock { flex: 1 1 48%; }
 
 .card-text { display: flex; flex-direction: column; }
@@ -799,6 +797,35 @@ a:hover { color: var(--sage); text-decoration-color: currentColor; }
   font-weight: 600;
 }
 
+/* Публикация постов: пост с цветными кнопками и слоты контент-плана */
+.chan-btns { display: flex; gap: 6px; margin-top: 4px; }
+.chan-btn {
+  flex: 1;
+  padding: 4px 10px;
+  border-radius: 8px;
+  color: #fff;
+  font-style: normal;
+  font-size: 12.5px;
+  font-weight: 600;
+  text-align: center;
+}
+.chan-btn--blue { background: #3b82c4; }
+.chan-btn--green { background: #2f9d68; }
+.chan-slots { display: flex; flex-wrap: wrap; gap: 6px; }
+.chan-slots span {
+  padding: 4px 10px;
+  border: 1px dashed var(--line-strong);
+  border-radius: 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--muted);
+}
+.chan-slots .is-busy {
+  border: 1px solid var(--sage);
+  background: var(--sage-soft);
+  color: var(--ink);
+}
+
 /* Рулетка: маленькое рабочее колесо */
 .mini-roulette {
   display: flex;
@@ -928,9 +955,10 @@ a:hover { color: var(--sage); text-decoration-color: currentColor; }
 @media (max-width: 960px) {
   .bento { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .card--slovo,
-  .card--ads,
   .card--post { grid-column: span 2; }
   .card--win,
+  .card--ads,
+  .card--channel,
   .card--pi,
   .card--kupim,
   .card--roulette { grid-column: span 1; }
@@ -944,9 +972,9 @@ a:hover { color: var(--sage); text-decoration-color: currentColor; }
   .card--kupim,
   .card--roulette,
   .card--ads,
+  .card--channel,
   .card--post { grid-column: auto; }
   .card--slovo,
-  .card--ads,
   .card--post { flex-direction: column; align-items: stretch; }
   .more { grid-template-columns: 1fr; gap: 8px; }
 }
