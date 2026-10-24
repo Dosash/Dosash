@@ -35,6 +35,16 @@
 </td>
 </tr>
 <tr>
+<td colspan="2" valign="top">
+
+### 💬 [TG Panel — веб-панель для нескольких Telegram-аккаунтов](https://github.com/Dosash/web_panel_acc)
+Все ваши Telegram-аккаунты в одном окне браузера: загружаете папку `tdata`, и диалоги собираются в общий список с цветными метками. Переписка с медиа, каналы и группы с управлением админами, профиль, сеансы, мини-приложения ботов, режим «невидимки» и уведомления в реальном времени. Внутри уже есть боты постинга и рекламы, сессии хранятся зашифрованными. Запуск одной командой в Docker или [программой для Windows, Linux и macOS](https://github.com/Dosash/web_panel_acc/releases).
+
+`Python` · `FastAPI` · `Telethon` · `SQLite` · `Docker`
+
+</td>
+</tr>
+<tr>
 <td width="50%" valign="top">
 
 ### 📢 [Бот продажи рекламы в Telegram-каналах](https://github.com/Dosash/ads-channel-bot)

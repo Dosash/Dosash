@@ -566,20 +566,26 @@ a:hover { color: var(--sage); text-decoration-color: currentColor; }
 .card--roulette { grid-column: span 2; }
 .card--ads,
 .card--channel { grid-column: span 3; }
+.card--panel,
 .card--post { grid-column: span 6; }
 
 .card--slovo,
+.card--panel,
 .card--post {
   flex-direction: row;
   align-items: center;
 }
 .card--slovo { align-items: stretch; }
 .card--slovo .card-text { justify-content: center; }
-.card--slovo .mock { margin-top: 0; }
+.card--slovo .mock,
+.card--panel .mock { margin-top: 0; }
 .card--slovo .card-text,
+.card--panel .card-text,
 .card--post .card-text { flex: 1 1 52%; }
 .card--slovo .mock,
+.card--panel .mock,
 .card--post .mock { flex: 1 1 48%; }
+.card-desc code { font-family: var(--font-mono); font-size: 0.9em; }
 
 .card-text { display: flex; flex-direction: column; }
 .card-top { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
@@ -826,6 +832,65 @@ a:hover { color: var(--sage); text-decoration-color: currentColor; }
   color: var(--ink);
 }
 
+/* TG Panel: аккаунты слева и общий список чатов с цветными метками */
+.mock-panel { display: flex; min-height: 200px; font-family: var(--font-body); }
+.panel-accs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 10px;
+  background: var(--line);
+}
+.acc {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+}
+.acc.is-active { box-shadow: 0 0 0 2px var(--paper), 0 0 0 4px var(--sage); }
+.acc--a { background: #3b82c4; }
+.acc--b { background: #d0703c; }
+.acc--c { background: #2f9d68; }
+.acc--add { border: 1.5px dashed var(--line-strong); color: var(--muted); }
+.panel-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px 12px;
+  font-size: 13.5px;
+  min-width: 0;
+}
+.panel-tabs { display: flex; gap: 10px; margin-bottom: 4px; font-size: 11.5px; }
+.panel-tabs b { font-weight: 600; color: var(--sage); }
+.panel-tabs i { font-style: normal; color: var(--muted); }
+.panel-chat {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 10px;
+  border-radius: 10px;
+  background: var(--sheet);
+  border: 1px solid var(--line);
+}
+.panel-chat b { font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.panel-chat .dot { width: 9px; height: 9px; flex: none; border-radius: 50%; }
+.panel-chat em {
+  margin-left: auto;
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: var(--sage);
+  color: var(--on-sage);
+  font-style: normal;
+  font-size: 11.5px;
+  font-weight: 600;
+}
+
 /* Рулетка: маленькое рабочее колесо */
 .mini-roulette {
   display: flex;
@@ -955,6 +1020,7 @@ a:hover { color: var(--sage); text-decoration-color: currentColor; }
 @media (max-width: 960px) {
   .bento { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .card--slovo,
+  .card--panel,
   .card--post { grid-column: span 2; }
   .card--win,
   .card--ads,
@@ -973,8 +1039,10 @@ a:hover { color: var(--sage); text-decoration-color: currentColor; }
   .card--roulette,
   .card--ads,
   .card--channel,
+  .card--panel,
   .card--post { grid-column: auto; }
   .card--slovo,
+  .card--panel,
   .card--post { flex-direction: column; align-items: stretch; }
   .more { grid-template-columns: 1fr; gap: 8px; }
 }
